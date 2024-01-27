@@ -2,7 +2,7 @@ import Link  from "next/link";
 export default function Header() {
     return(
         <header className=" flex items-center justify-between">
-        <Link className="text-red-500 font-semibold text-2xl" href="">Scan Easy</Link>
+        <Link className="text-red-500 font-semibold text-2xl" href="">Easy Order</Link>
         <nav className="flex  items-center gap-8 text-gray-400 font-semibold">
           <Link href="">Home</Link>
           <Link href="">Menu</Link>
