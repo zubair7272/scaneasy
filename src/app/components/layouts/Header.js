@@ -11,7 +11,11 @@ export default function Header() {
           <Link href="">Menu</Link>
           <Link href="">About</Link>
           <Link href="">Contact</Link>
-          <Link href="" className="bg-red-500 rounded-full text-white px-6 py-2">Login</Link>
+        </nav>
+        <nav className="flex  items-center gap-8 text-gray-400 font-semibold">
+          <Link href={''}>Login</Link>
+          <Link href="" className="bg-red-500 rounded-full text-white px-6 py-2">Register</Link>
+
         </nav>
         </header>
     );
