@@ -13,8 +13,8 @@ export default function Header() {
           <Link href="">Contact</Link>
         </nav>
         <nav className="flex  items-center gap-8 text-gray-400 font-semibold">
-          <Link href={''}>Login</Link>
-          <Link href="" className="bg-red-500 rounded-full text-white px-6 py-2">Register</Link>
+          <Link href={'/login'}>Login</Link>
+          <Link href={'/register'} className="bg-red-500 rounded-full text-white px-6 py-2">Register</Link>
 
         </nav>
         </header>
