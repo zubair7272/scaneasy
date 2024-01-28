@@ -1,5 +1,5 @@
 import Header  from "../components/layouts/Header";
-import Menu from "../components/layouts/Menu";
+import Menu from "../components/menu/Menu";
 // import Items from "../components/layouts/Items";
 export default function rests(){
     return(

@@ -1,5 +1,5 @@
 import Image  from "next/image";
-import Items from "./items";
+import Items from "./Items";
 export default function Menu(){
     return (
         <section>
