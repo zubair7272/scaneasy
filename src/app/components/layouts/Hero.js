@@ -11,6 +11,7 @@
 // }
 
 // Hero Section By Adnan
+"use client";
 import React, { useState } from 'react';
 import './HeroSection.css';
 
