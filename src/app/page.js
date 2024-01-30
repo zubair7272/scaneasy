@@ -8,7 +8,7 @@ export default function Home() {
     <>
       {/* <Header /> */}
       <Hero />
-      <h1>hi</h1>
+      <h1>hi Hello</h1>
       {/* <Items /> */}
       {/* <Menu /> */}
     </>
