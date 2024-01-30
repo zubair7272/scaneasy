@@ -63,8 +63,8 @@ const Hero = () => {
         <p>99,000* restaurants like yours trust Toast with their technology. 
           From POS to payroll, we take care of it all – so you can focus on what you do best.</p>
         <div className="hero-buttons">
-          <button onClick={() => setShowContactForm(true)}>Button 1</button>
-          <button>Button 2</button>
+          <button onClick={() => setShowContactForm(true)}>Get a Demo</button>
+          <button>See Pricing</button>
         </div>
       </div>
 
