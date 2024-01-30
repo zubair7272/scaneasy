@@ -1,3 +1,5 @@
+// import next from "next";
+import Image from "next/image"
 export default function Register(){
     return(
         <section className="mt-9">
@@ -7,15 +9,18 @@ export default function Register(){
                 <input type="email" placeholder="Email" />
                 <input type="password" placeholder="Password" />
                 <button type="submit">Register</button>
-            </form>
-            <div>
+            <div className="my-4 text-center text-gray-600">
                 Or Login 
             </div>
             <div>
-                <button>
-                    Login With Google
+                <button className="flex gap-4 justify-center">
+                    <Image src={'/Google.png'} width={32} height={32} />
+                    <p className="mt-1">
+                        Login With Google
+                    </p>
                 </button>
             </div>
+            </form>
         </section>
     );
 }
