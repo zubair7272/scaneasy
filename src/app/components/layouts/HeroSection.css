@@ -1,6 +1,8 @@
 
 /*HeroSection.css */
-
+body{
+    margin: 0;
+}
 .hero-container {
     display: flex;
     width: 100%;
