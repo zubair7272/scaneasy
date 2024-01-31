@@ -58,8 +58,8 @@ const Hero = () => {
     <div className="hero-container">
       {/* First Half */}
       <div className="hero-first-half">
-        <h1>Built for restaurants.</h1>
-        <h1>Built for you.</h1>
+        <h1 className='text-4xl'>Built for restaurants.</h1>
+        <h1 className='text-4xl mb-3'>Built for you.</h1>
         <p>99,000* restaurants like yours trust Toast with their technology. 
           From POS to payroll, we take care of it all – so you can focus on what you do best.</p>
         <div className="hero-buttons">
