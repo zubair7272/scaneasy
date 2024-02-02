@@ -18,7 +18,7 @@ import Image from "next/image"
 // import backgroundImage from './/right-section.jpg'; // Update the image file name if needed
 
 const Hero = () => {
-            const [formData, setFormData] = useState({
+const [formData, setFormData] = useState({
     name: '',
     email: '',
     restaurantName: '',
