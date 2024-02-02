@@ -72,7 +72,8 @@ const Hero = () => {
 
         {/* Add the image with reduced height */}
         {/* <img src={backgroundImage} alt="Background" style={{ width: '50%', height: '80%', objectFit: 'contain' }} /> */}
-        <Image src={'/right-section.jpg'} alt="Background" style={{ width: '50%', height: '80%', objectFit: 'contain' }} />
+        {/* style={{ width: '50%', height: '80%', objectFit: 'contain' }} */}
+        <Image src={'/right-section.jpg'} alt="Background" width={50} height={80} />
       </div>
 
       {/* Updated content with the new headings and list */}
@@ -105,7 +106,8 @@ const Hero = () => {
     {/* Image Section */}
     <div className="image-section">
     {/* <img src={backgroundImage} alt="Background" style={{ width: '100%', height: '80%', objectFit: 'contain' }} /> */}
-    Image src={'/right-section.jpg'} alt="Background" style={{ width: '50%', height: '80%', objectFit: 'contain' }} />
+    {/* style={{ width: '50%', height: '80%', objectFit: 'contain' } */}
+    <Image src={'/right-section.jpg'} alt="Background" width={50} height={80} />
     </div>
 
     {/* Text Section */}
