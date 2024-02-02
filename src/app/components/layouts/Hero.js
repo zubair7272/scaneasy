@@ -80,7 +80,7 @@ const [formData, setFormData] = useState({
         {/* Add the image with reduced height */}
         {/* <img src={backgroundImage} alt="Background" style={{ width: '50%', height: '80%', objectFit: 'contain' }} /> */}
         {/* style={{ width: '50%', height: '80%', objectFit: 'contain' }} */}
-        <Image src={'/right-section.jpg'} alt="Background" width={50} height={80} />
+        <Image src={'/right-section.jpg'} alt="Background" width={90} height={80} />
       </div>
 
       {/* Updated content with the new headings and list */}
@@ -114,15 +114,15 @@ const [formData, setFormData] = useState({
     <div className="image-section">
     {/* <img src={backgroundImage} alt="Background" style={{ width: '100%', height: '80%', objectFit: 'contain' }} /> */}
     {/* style={{ width: '50%', height: '80%', objectFit: 'contain' } */}
-    <Image src={'/right-section.jpg'} alt="Background" width={50} height={80} />
+    <Image src={'/right-section.jpg'} alt="Background" width={500} height={80} />
     </div>
 
     {/* Text Section */}
     <div className="text-section">
       <h5>Who are we</h5>
-      <h2>We're one team</h2>
-      <h3>There's no "I" in Scan Easy.</h3>
-      <h3>The only way we'll succeed is by solving problems together and sharing lessons along the way. 
+      <h2>We&apos;re one team</h2>
+      <h3>There's no &quot;I&quot; in Scan Easy.</h3>
+      <h3>The only way we&apos;ll succeed is by solving problems together and sharing lessons along the way. 
         As individuals, support and respect each other, and embrace our differences.</h3>
     </div>
   </div>
