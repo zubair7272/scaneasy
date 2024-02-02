@@ -14,7 +14,7 @@
 "use client";
 import React, { useState } from 'react';
 import './HeroSection.css';
-import backgroundImage from './/right-section.jpg'; // Update the image file name if needed
+// import backgroundImage from './/right-section.jpg'; // Update the image file name if needed
 
 const Hero = () => {
   const [showContactForm, setShowContactForm] = useState(false);
@@ -70,7 +70,8 @@ const Hero = () => {
 
 
         {/* Add the image with reduced height */}
-        <img src={backgroundImage} alt="Background" style={{ width: '50%', height: '80%', objectFit: 'contain' }} />
+        {/* <img src={backgroundImage} alt="Background" style={{ width: '50%', height: '80%', objectFit: 'contain' }} /> */}
+        <Image src={'/right-section.jpg'} alt="Background" style={{ width: '50%', height: '80%', objectFit: 'contain' }} />
       </div>
 
       {/* Updated content with the new headings and list */}
@@ -102,7 +103,8 @@ const Hero = () => {
 <div className="additional-content">
     {/* Image Section */}
     <div className="image-section">
-    <img src={backgroundImage} alt="Background" style={{ width: '100%', height: '80%', objectFit: 'contain' }} />
+    {/* <img src={backgroundImage} alt="Background" style={{ width: '100%', height: '80%', objectFit: 'contain' }} /> */}
+    Image src={'/right-section.jpg'} alt="Background" style={{ width: '50%', height: '80%', objectFit: 'contain' }} />
     </div>
 
     {/* Text Section */}
