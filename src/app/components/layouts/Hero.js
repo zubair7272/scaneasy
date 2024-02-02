@@ -14,6 +14,8 @@
 "use client";
 import React, { useState } from 'react';
 import './HeroSection.css';
+import backgroundImage from './/right-section.jpg'; // Update the image file name if needed
+
 
 const Hero = () => {
   const [formData, setFormData] = useState({
@@ -121,9 +123,39 @@ const Hero = () => {
               <button type="submit">Submit</button>
             </form>
           </div>
-        )}
+        )}            
       </div>
+                    //date : 2/2/24
+                    {/* Add the image with reduced height */}
+        <img src={backgroundImage} alt="Background" style={{ width: '50%', height: '80%', objectFit: 'contain' }} />
+      </div>
+
+      {/* Updated content with the new headings and list */}
+      <div className="centered-headings">
+  <h3>Pricing</h3>
+  <h1>The right plan for every restaurant</h1>
+
+  {/* Horizontal list with check marks */}
+  <ul className="check-list">
+    <li>24/7 support</li>
+    <li>Offline mode</li>
+    <li>Flexible payment options</li>
+    <li>Simple & fast set-up</li>
+  </ul>
+  <h1>hi there</h1>
+  
+  {/* Custom card styling */}
+<div className="centered-container">
+  <div className="custom-card-container">
+    <h1 className="font-semibold text-xl my-3">
+      Pricing
+    </h1>
+    <p className="text-gray-500 text-sm">Services List</p>
+    <button className="mt-4 bg-red-500 text-white rounded-full px-8 py-2">Get A Quote</button>
+  </div>
+</div>
     </div>
+            </>
   );
 }
 
