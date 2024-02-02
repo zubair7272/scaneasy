@@ -11,7 +11,7 @@
 // }
 
 // Hero Section By Adnan
-//"use client";
+"use client";
 import React, { useState } from 'react';
 import './HeroSection.css';
 import backgroundImage from './/right-section.jpg'; // Update the image file name if needed
