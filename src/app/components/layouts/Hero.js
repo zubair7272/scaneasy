@@ -121,7 +121,7 @@ const [formData, setFormData] = useState({
     <div className="text-section">
       <h5>Who are we</h5>
       <h2>We&apos;re one team</h2>
-      <h3>There's no &quot;I&quot; in Scan Easy.</h3>
+      <h3>There&apos;s no &quot;I&quot; in Scan Easy.</h3>
       <h3>The only way we&apos;ll succeed is by solving problems together and sharing lessons along the way. 
         As individuals, support and respect each other, and embrace our differences.</h3>
     </div>
