@@ -125,13 +125,6 @@ const [formData, setFormData] = useState({
             </div>
           )}
         </div>
-
-{/* Wednersday and Thursday */}
-
-
-        {/* Add the image with reduced height */}
-        {/* <img src={backgroundImage} alt="Background" style={{ width: '50%', height: '80%', objectFit: 'contain' }} /> */}
-        {/* style={{ width: '50%', height: '80%', objectFit: 'contain' }} */}
         <Image src={'/right-section.jpg'} alt="Background" width={600} height={80} />
       </div>
 
@@ -160,23 +153,19 @@ const [formData, setFormData] = useState({
   </div>
 </div>
 
+
+{/* About Us */}
 <div className='About-Us'><h1><br></br><br></br>About Us</h1></div>
 
   <div className="hero-container">
         {/* First Half */}
         <div className="hero-first-half">
           <h1>Who are we <br></br>We&apos;re one team<br></br>There&apos;s no &quot;I&quot; in Scan Easy.</h1>
-          
+
           <h3>The only way we&apos;ll succeed is by solving problems together and sharing lessons along the way. 
         As individuals, support and respect each other, and embrace our differences.</h3>
           
         </div>
-
-
-
-        {/* Add the image with reduced height */}
-        {/* <img src={backgroundImage} alt="Background" style={{ width: '50%', height: '80%', objectFit: 'contain' }} /> */}
-        {/* style={{ width: '50%', height: '80%', objectFit: 'contain' }} */}
         <Image src={'/right-section.jpg'} alt="Background" width={600} height={80} />
       </div>
 
