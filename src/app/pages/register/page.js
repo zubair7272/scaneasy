@@ -58,8 +58,8 @@ export default function Register(){
                         Login With Google
                     </p>
                 </button>
-                <div className="text-center my-4">
-                    Already Registered?<br></br><Link href={'/login'}>Login Here&raquo;</Link>
+                <div className="text-center my-4  border-t pt-4">
+                    Already Registered?<br></br><Link href={'/pages/login'}>Login Here&raquo;</Link>
                 </div>
             </div>
             </form>
