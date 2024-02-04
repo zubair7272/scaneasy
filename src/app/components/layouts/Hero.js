@@ -35,11 +35,24 @@ const [formData, setFormData] = useState({
     setShowContactForm(false);
   };
 
+  const handleChange = (e) => {
+    const {name, value} = e.target;
+    setFormData((prevData)=> ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission logic here
     console.log('Form submitted');
     // Reset the form after submission if needed
+    setFormData({
+      name: '',
+      email: '',
+      restaurantName:'',
+      role: '',
+    });
     setShowContactForm(false);
   };
 
@@ -52,7 +65,7 @@ const [formData, setFormData] = useState({
           <h1>Built for you.</h1>
           <p>99,000* restaurants like yours trust Toast with their technology. From POS to payroll, we take care of it all – so you can focus on what you do best.</p>
           <div className="hero-buttons">
-            <button onClick={openContactForm}>Button 1</button>
+            <button onClick={openContactForm}>Get A Demo</button>
             <button>Button 2</button>
           </div>
         </div>
@@ -67,7 +80,46 @@ const [formData, setFormData] = useState({
                 &times;
               </div>
               <form onSubmit={handleSubmit}>
-                {/* ... (your form inputs) */}
+              <label>
+                  Name*:
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                  />
+                </label>
+                <label>
+                  Email*:
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                  />
+                </label>
+                <label>
+                  Restaurant Name*:
+                  <input
+                    type="text"
+                    name="restaurantName"
+                    value={formData.restaurantName}
+                    onChange={handleChange}
+                    required
+                  />
+                </label>
+                <label>
+                  What best describes you*:
+                  <input
+                    type="text"
+                    name="role"
+                    value={formData.role}
+                    onChange={handleChange}
+                    required
+                  />
+                </label>
                 <button type="submit">Submit</button>
               </form>
             </div>
