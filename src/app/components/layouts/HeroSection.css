@@ -22,11 +22,13 @@
 .hero-buttons {
   display: flex;
   margin-top: 10px;
+  
+
 }
 
 .hero-buttons button {
   margin-right: 10px;
-  padding: 20px;
+  padding: 10px 80px 10px 80px;
   background-color: #433e8b;
   color: white;
   border: none;
@@ -192,5 +194,50 @@
 
 
 
+/* Responsive */
+/* HeroSection.css */
+
+/* Common styles */
+
+@media screen and (max-width: 768px) {
+  /* Apply styles for screens up to 768px wide */
+
+  .hero-container {
+    flex-direction: column; /* Stack sections vertically on smaller screens */
+    height: auto; /* Remove fixed height */
+  }
+
+  .hero-first-half,
+  .hero-second-half {
+    flex: 1;
+    padding: 20px;
+    margin: 0; /* Remove margins on smaller screens */
+    text-align: center; /* Center text on smaller screens */
+  }
+
+  .hero-first-half {
+    margin-left: 0; /* Remove left margin */
+    margin-top: 20px; /* Adjust top margin */
+  }
+
+  .hero-buttons {
+    flex-direction: column; /* Stack buttons vertically */
+    margin-top: 20px;
+  }
+
+  .hero-buttons button {
+    margin-right: 0; /* Remove right margin on buttons */
+    margin-bottom: 10px; /* Add bottom margin to buttons */
+  }
+
+  .contact-form-popup {
+    width: 80%; /* Adjust popup width for smaller screens */
+  }
+
+  .image-section img {
+    width: 100%; /* Make the image fill the container */
+    height: auto; /* Maintain aspect ratio */
+  }
+}
 
 
