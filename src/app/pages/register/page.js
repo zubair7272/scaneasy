@@ -41,7 +41,7 @@ export default function Register(){
             )}
             {Error &&(
                 <div className="my-4 text-center">
-                    User Alredy Registered
+                    User Alredy Registered<br></br>Or Some Error Has Occured
                 </div>
             )}
             <form action="" className="block max-w-xs mx-auto" onSubmit={handleFormSubmit}>
@@ -59,7 +59,7 @@ export default function Register(){
                     </p>
                 </button>
                 <div className="text-center my-4">
-                    Already Registered? <Link href={'/login'}>Login Here&raquo;</Link>
+                    Already Registered?<br></br><Link href={'/login'}>Login Here&raquo;</Link>
                 </div>
             </div>
             </form>
