@@ -65,7 +65,7 @@ const [formData, setFormData] = useState({
           <h1>Built for you.</h1>
           <p>99,000* restaurants like yours trust Toast with their technology. From POS to payroll, we take care of it all – so you can focus on what you do best.</p>
           <div className="hero-buttons">
-            <button onClick={openContactForm}>Get A Demo</button>
+            <button onClick={openContactForm}>Get A Quote</button>
             <button>XXXX-XXX-XXX</button>
           </div>
         </div>

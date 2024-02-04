@@ -6,7 +6,9 @@
   height: 100vh;
   background-color: #ffffff;
 }
-
+.hero-first-half h1{
+  font-size: 60px;
+}
 .hero-first-half,
 .hero-second-half {
   flex: 1;
@@ -15,7 +17,7 @@
 
 .hero-first-half {
   color: black;
-  margin-left: 150px;
+  margin-left: 70px;
   margin-top: 70px;
 }
 
@@ -31,6 +33,7 @@
   padding: 10px 80px 10px 80px;
   background-color: #433e8b;
   color: white;
+  white-space: nowrap;
   border: none;
   cursor: pointer;
   border-radius: 20px;
