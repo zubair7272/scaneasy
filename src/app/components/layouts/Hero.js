@@ -159,25 +159,26 @@ const [formData, setFormData] = useState({
     <button className="mt-4 bg-red-500 text-white rounded-full px-8 py-2">Get A Quote</button>
   </div>
 </div>
-{/* Thursday and Friday */}
-<div className='About-Us'><h1><br></br><br></br>About Us</h1></div>
-<div className="additional-content">
-    {/* Image Section */}
-    <div className="image-section">
-    {/* <img src={backgroundImage} alt="Background" style={{ width: '100%', height: '80%', objectFit: 'contain' }} /> */}
-    {/* style={{ width: '50%', height: '80%', objectFit: 'contain' } */}
-    <Image src={'/right-section.jpg'} alt="Background" width={500} height={80} />
-    </div>
 
-    {/* Text Section */}
-    <div className="text-section">
-      <h5>Who are we</h5>
-      <h2>We&apos;re one team</h2>
-      <h3>There&apos;s no &quot;I&quot; in Scan Easy.</h3>
-      <h3>The only way we&apos;ll succeed is by solving problems together and sharing lessons along the way. 
+<div className='About-Us'><h1><br></br><br></br>About Us</h1></div>
+
+  <div className="hero-container">
+        {/* First Half */}
+        <div className="hero-first-half">
+          <h1>Who are we <br></br>We&apos;re one team<br></br>There&apos;s no &quot;I&quot; in Scan Easy.</h1>
+          
+          <h3>The only way we&apos;ll succeed is by solving problems together and sharing lessons along the way. 
         As individuals, support and respect each other, and embrace our differences.</h3>
-    </div>
-  </div>
+          
+        </div>
+
+
+
+        {/* Add the image with reduced height */}
+        {/* <img src={backgroundImage} alt="Background" style={{ width: '50%', height: '80%', objectFit: 'contain' }} /> */}
+        {/* style={{ width: '50%', height: '80%', objectFit: 'contain' }} */}
+        <Image src={'/right-section.jpg'} alt="Background" width={600} height={80} />
+      </div>
 
 </div>
 
