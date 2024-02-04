@@ -66,7 +66,7 @@ const [formData, setFormData] = useState({
           <p>99,000* restaurants like yours trust Toast with their technology. From POS to payroll, we take care of it all – so you can focus on what you do best.</p>
           <div className="hero-buttons">
             <button onClick={openContactForm}>Get A Demo</button>
-            <button>Button 2</button>
+            <button>XXXX-XXX-XXX</button>
           </div>
         </div>
 
@@ -147,7 +147,7 @@ const [formData, setFormData] = useState({
     <li>Flexible payment options</li>
     <li>Simple & fast set-up</li>
   </ul>
-  <h1>hi there</h1>
+  <br></br>
   
   {/* Custom card styling */}
 <div className="centered-container">
@@ -160,7 +160,7 @@ const [formData, setFormData] = useState({
   </div>
 </div>
 {/* Thursday and Friday */}
-<div className='About-Us'><h1>About Us</h1></div>
+<div className='About-Us'><h1><br></br><br></br>About Us</h1></div>
 <div className="additional-content">
     {/* Image Section */}
     <div className="image-section">
