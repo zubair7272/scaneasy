@@ -8,7 +8,7 @@ import { useState } from "react";
 export default function Register(){
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
-    const [CreatingUser,setCreatingUser] = useState(false);
+    const [CreatingUser,setCreatingUser] = useState(true);
     const [UserCreated,setUserCreated] = useState(false);
     const [Error,setError] = useState(false);
     async function handleFormSubmit(ev){
@@ -16,12 +16,12 @@ export default function Register(){
         setCreatingUser(true);
         setError(false);
         setUserCreated(false)
-        const response = await fetch('/api/register',{
+        const {ok} = await fetch('/api/register',{
             method: 'POST',
             body : JSON.stringify({email,password}),
             headers : {'Content-Type': 'application/json'}
         })
-        if(response.ok){
+        if(ok){
             setUserCreated(true);
         }
         else{
