@@ -1,3 +1,4 @@
+// import Table from "./components/invoice/Table";
 "use client";
 export default function invoice(){
     const handlePrint = () =>{
@@ -60,6 +61,9 @@ export default function invoice(){
                     This is the table 
             </div> 
             {/* End of Table */}
+            {/* <Table /> */}
+
+
             {/*Notes  */}
             <section className="mb-5">
                 {/* Textarea */}
@@ -102,6 +106,7 @@ export default function invoice(){
                 </ul>
             </footer>
             {/* End of footer */}
+
         </main>
         </>
     );
