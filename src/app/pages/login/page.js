@@ -5,15 +5,33 @@ import { useState } from "react";
 export default function Login(){
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
+    const [LoginInProgress,setLoginInProgress] = useState(false)
+    async function handleFormSubmit(ev){
+        ev.preventDefault();
+        setLoginInProgress(true)
+        const response = await fetch('/api/login',{
+            body: JSON.stringify({email,password}),
+            headers: {'Content-Type':'application/json'},
+            method : 'POST',
+        })
+        if(response.ok){
+
+        }
+        else{
+
+        }
+        setLoginInProgress(false)
+
+    }
     return (
         <section className="mt-8">
             <h1 className="text-center text-red-500 text-4xl mb-4">
                 Login
             </h1>
-            <form action="" className="block max-w-xs mx-auto">
-                <input type="email" placeholder="Email" value={email}  onChange={ev => setEmail(ev.target.value)}/>
-                <input type="password" placeholder="Password" value={password}  onChange={ev => setPassword(ev.target.value)} />
-                <button type="submit" >Login</button>
+            <form action="" className="block max-w-xs mx-auto" onSubmit={handleFormSubmit}>
+                <input type="email" placeholder="Email" value={email} disabled={setLoginInProgress}  onChange={ev => setEmail(ev.target.value)}/>
+                <input type="password" placeholder="Password" value={password} disabled={setLoginInProgress}  onChange={ev => setPassword(ev.target.value)} />
+                <button type="submit" disabled={setLoginInProgress} >Login</button>
             <div className="my-4 text-center text-gray-600">
                 Or Login
             </div>
