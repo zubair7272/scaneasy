@@ -54,12 +54,12 @@ export default function invoice(){
                 </ul>
             </article>
             {/* End of dates */}
+            
             {/* Table */}
-                <div className="my-5">
+            <div className="my-5">
                     This is the table 
-                </div>
-            {/* End of table */}
-
+            </div> 
+            {/* End of Table */}
             {/*Notes  */}
             <section className="mb-5">
                 {/* Textarea */}
