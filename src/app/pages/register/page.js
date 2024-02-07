@@ -8,7 +8,7 @@ import { useState } from "react";
 export default function Register(){
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
-    const [CreatingUser,setCreatingUser] = useState(true);
+    const [CreatingUser,setCreatingUser] = useState(false);
     const [UserCreated,setUserCreated] = useState(false);
     const [Error,setError] = useState(false);
     async function handleFormSubmit(ev){

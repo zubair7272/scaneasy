@@ -5,7 +5,7 @@ import { useState } from "react";
 export default function Login(){
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
-    const [LoginInProgress,setLoginInProgress] = useState(true)
+    const [LoginInProgress,setLoginInProgress] = useState(false)
     async function handleFormSubmit(ev){
         ev.preventDefault();
         setLoginInProgress(true)
