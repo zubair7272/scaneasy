@@ -1,7 +1,7 @@
 export default function FooterInvoice(){
     return(
         <>
-        <footer>
+            <footer>
                 <ul className=" flex flex-wrap items-center justify-center">
                     <li>
                         <span className="font-bold">Your Name : </span> Mohammad Adnan
@@ -32,6 +32,6 @@ export default function FooterInvoice(){
                     </li>
                 </ul>
             </footer>
-            </>
+        </>
     );
 }

@@ -14,30 +14,25 @@ export default function invoice(){
     }
     return(
         <>
-        <main className="m-5 p-5 xl:max-w-4xl xl:mx-auto bg-white rounded shadow">
+            <main className="m-5 p-5 xl:max-w-4xl xl:mx-auto bg-white rounded shadow">
             
-            <div>
-            <HeaderInvoice handlePrint={handlePrint} />
-            
+                <div>
+                    <HeaderInvoice handlePrint={handlePrint} />
 
-            <YourDetails />
+                    <YourDetails />
             
-            <ClientDetails />
+                    <ClientDetails />
             
-            <Dates />
+                    <Dates />
             
-            <Table />
+                    <Table />
 
-
+                    <Notes />
             
-            <Notes />
-            
+                    <FooterInvoice />
 
-            
-            <FooterInvoice />
-            </div>  
-
-        </main>
+                </div>  
+            </main>
         </>
     );
 }
