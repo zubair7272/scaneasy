@@ -56,7 +56,7 @@ export default function invoice(){
             </article>
             {/* End of dates */}
             
-            {/* Table */}
+            {/* Table */}   
             <div className="my-5">
                     This is the table 
             </div> 
