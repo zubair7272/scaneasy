@@ -1,5 +1,5 @@
-// import Table from "./components/invoice/Table";
 "use client";
+import Table from "../../components/invoice/Table";
 export default function invoice(){
     const handlePrint = () =>{
         window.print()
@@ -61,7 +61,7 @@ export default function invoice(){
                     This is the table 
             </div> 
             {/* End of Table */}
-            {/* <Table /> */}
+            <Table />
 
 
             {/*Notes  */}

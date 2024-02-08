@@ -1,6 +1,10 @@
+'use ckient';
+import { useSession } from "next-auth/react";
 import Link  from "next/link";
 // import Image from "next/image";
 export default function Header() {
+  // const session = useSession();
+  // const status  = session.status
     return(
         <header className="my-6 flex items-center justify-between">
         
