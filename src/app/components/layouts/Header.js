@@ -1,10 +1,10 @@
-'use ckient';
+'use client';
 import { useSession } from "next-auth/react";
 import Link  from "next/link";
 // import Image from "next/image";
 export default function Header() {
-  // const session = useSession();
-  // const status  = session.status
+  const session = useSession();
+  const status  = session.status
     return(
         <header className="my-6 flex items-center justify-between">
         
@@ -17,6 +17,7 @@ export default function Header() {
           <Link href="">Contact</Link>
         </nav>
         <nav className="flex  items-center gap-8 text-gray-400 font-semibold">
+          {/* {status=='authenticated' && } */}
           <Link href={'/pages/login'}>Login</Link>
           <Link href={'/pages/register'} className="bg-red-500 rounded-full text-white px-6 py-2">Register</Link>
 
