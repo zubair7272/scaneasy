@@ -1,7 +1,8 @@
+import Image from 'next/image'
 export default function Items(){
     return(
         <div className="bg-gray-200 p-4 rounded-lg text-center group hover:bg-white hover:shadow-md hover:shadow-black/50 trasition-all">
-            <img src="" alt="Image Here" />
+            <Image src="" alt="Image Here" />
             <h4 className="font-semibold text-xl my-3">
                 Item Name Here
             </h4>
