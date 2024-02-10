@@ -1,5 +1,5 @@
 'use client';
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import Link  from "next/link";
 // import Image from "next/image";
 export default function Header() {
@@ -17,10 +17,18 @@ export default function Header() {
           <Link href="">Contact</Link>
         </nav>
         <nav className="flex  items-center gap-8 text-gray-400 font-semibold">
-          {/* {status=='authenticated' && } */}
-          <Link href={'/pages/login'}>Login</Link>
-          <Link href={'/pages/register'} className="bg-red-500 rounded-full text-white px-6 py-2">Register</Link>
+          {status === 'authenticated' && (
+            <button onClick={()=> signOut()} className="bg-red-500 rounded-full text-white px-6 py-2">
+              Logout
+            </button>
 
+          ) }
+          {status === 'unauthenticated'&&(
+            <>
+              <Link href={'/pages/login'}>Login</Link>
+              <Link href={'/pages/register'} className="bg-red-500 rounded-full text-white px-6 py-2">Register</Link>
+            </>
+          )}
         </nav>
         </header>
     );
