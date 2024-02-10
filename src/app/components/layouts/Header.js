@@ -4,7 +4,10 @@ import Link  from "next/link";
 // import Image from "next/image";
 export default function Header() {
   const session = useSession();
+  console.log(session)
   const status  = session.status
+  // const userData = session.data.user;
+  // const userName = userData.name || userData.email
     return(
         <header className="my-6 flex items-center justify-between">
         
@@ -18,9 +21,12 @@ export default function Header() {
         </nav>
         <nav className="flex  items-center gap-8 text-gray-400 font-semibold">
           {status === 'authenticated' && (
+            <>
+            <Link href={'/profile'}Profile></Link>
             <button onClick={()=> signOut()} className="bg-red-500 rounded-full text-white px-6 py-2">
               Logout
             </button>
+            </>
 
           ) }
           {status === 'unauthenticated'&&(
