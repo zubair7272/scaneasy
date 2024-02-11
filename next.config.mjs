@@ -8,7 +8,12 @@ const nextConfig = {
                 hostname: '*googleusercontent.com'
 
             },
+            {
+                protocol : 'https',
+                hostname : ''
+            },
         ]
+
     }
 };
 
