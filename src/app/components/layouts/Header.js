@@ -4,7 +4,7 @@ import Link  from "next/link";
 // import Image from "next/image";
 export default function Header() {
   const session = useSession();
-  // console.log(session)
+  console.log(session)
   const status  = session.status
   const userData = session.data?.user;
   let userName = userData?.name || userData?.email
