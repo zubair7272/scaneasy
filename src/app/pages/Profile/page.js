@@ -5,6 +5,8 @@ import { redirect } from "next/navigation";
 import Image from "next/image"
 import { useEffect, useState } from "react";
 // import { info } from "console";
+import Info from "../../components/layouts/Info";
+import SuccessBox from "../../components/layouts/SuccessBox"
 
 export default function Profile(){
     const session = useSession();
