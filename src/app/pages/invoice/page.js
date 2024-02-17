@@ -5,7 +5,7 @@ import FooterInvoice from "../../components/invoice/FooterInvoice";
 import Notes from "../../components/invoice/Notes";
 import Dates from "../../components/invoice/Dates";
 import ClientDetails from "../../components/invoice/ClientDetails";
-import YourDetails from "../../components/invoice/YourDetails";
+import MainDetails from "../../components/invoice/MainDetails";
 
 
 export default function invoice(){
@@ -19,7 +19,7 @@ export default function invoice(){
                 <div>
                     <HeaderInvoice handlePrint={handlePrint} />
 
-                    <YourDetails />
+                    <MainDetails />
             
                     <ClientDetails />
             
