@@ -1,6 +1,6 @@
 import { get } from "http";
 import mongoose from "mongoose";
-import { getServerSession } from "next-auth";
+import { getServerSession } from "next-auth/next";
 import { authOptions } from "../auth/[...nextauth]/route";
 import { User } from "../../models/User";
 // import { Session } from "inspector";
