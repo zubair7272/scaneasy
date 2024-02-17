@@ -10,7 +10,7 @@ const nextConfig = {
             },
             {
                 protocol : 'https',
-                hostname : ''
+                hostname : 'easy-order-s.s3.amazonaws.com'
             },
         ]
 

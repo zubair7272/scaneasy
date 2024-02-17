@@ -7,20 +7,14 @@ import { useEffect, useState } from "react";
 
 export default function Profile(){
     const session = useSession();
-    console.log(session)
+    // console.log(session)
     const {status} = session
     const [Username,setUsername]= useState('')
     const[saved,setsaved] = useState(false)
     const[isSaving,setisSaving] = useState(false)
     const[image,setImage] = useState('')
-    // const userImage = session.data?.user?.image
-    if(status === 'loading'){
-        return 'Loading...'
-    }
-    else if(status === 'unauthenticated'){
-        return redirect('/pages/login')
-    }
-    useEffect( ()=>{
+    
+    useEffect(()=>{
         if(status === 'authenticated'){
             setUsername(session.data.user.name)
         }
@@ -33,8 +27,8 @@ export default function Profile(){
         setisSaving(true)
         const response = await fetch('/api/profile', {
             method:'PUT',
-            // headers : {'content-type' : 'application/json'},
-            body : JSON.stringify({name:Username}),
+            headers : {'content-type' : 'application/json'},
+            body : JSON.stringify({name:Username,image}),
         })
         setisSaving(false)
         if(response.ok){
@@ -42,9 +36,13 @@ export default function Profile(){
         }
 
     }
+    
     async function handleOnUpload(ev){
+        // console.log('upload')
         const files = ev.target.files
-        if(files?.len === 1){
+        // console.log(files)
+        if(files?.length === 1){
+            console.log('upload2')
             const data = new FormData
             data.set('file',files[0])
             const response = await fetch('/api/upload',{
@@ -59,6 +57,13 @@ export default function Profile(){
         }
 
     }
+    if(status === 'loading'){
+        return 'Loading...'
+    }
+    else if(status === 'unauthenticated'){
+        return redirect('/pages/login')
+    }
+    
     return (
         <section>
             <h1 className="text-center text-red-500 text-4xl mb-4">
@@ -82,7 +87,7 @@ export default function Profile(){
 
                             )}
                         </div>
-                        <label className="">
+                        <label>
 
                             <input type="file" className="hidden"  onChange={handleOnUpload}/>
                             <span className=" block border border-gray-300 rounded-lg text-center cursor-pointer">
