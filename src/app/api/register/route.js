@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import { NextResponse } from "next/server";
 import { User } from "../../models/User";
+import bcrypt from "bcrypt"
 
 export async function POST(req) {
   const body = await req.json();
