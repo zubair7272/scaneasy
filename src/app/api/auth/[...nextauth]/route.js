@@ -6,7 +6,7 @@ import bcrypt from "bcrypt"
 import GoogleProvider from "next-auth/providers/google";
 import { MongoDBAdapter } from "@auth/mongodb-adapter"
 import clientPromise from "../../../libs/mongoConnect"
-import { NextAuthOptions } from "next-auth";
+// import { NextAuthOptions } from "next-auth";
 
 
 export const  authOptions  = {
@@ -31,11 +31,11 @@ export const  authOptions  = {
             mongoose.connect(process.env.MONGO_URL);
             const user = await User.findOne({email});
             const passvalid = user && bcrypt.compareSync(password, user.password);
-
             // console.log({passvalid})
             if (passvalid) {
               return user;
             }
+            
 
             return null
           }
