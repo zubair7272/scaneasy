@@ -4,6 +4,7 @@ import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import Image from "next/image"
 import { useEffect, useState } from "react";
+// import { info } from "console";
 
 export default function Profile(){
     const session = useSession();
@@ -13,6 +14,7 @@ export default function Profile(){
     const[saved,setsaved] = useState(false)
     const[isSaving,setisSaving] = useState(false)
     const[image,setImage] = useState('')
+    const[isUploading,setIsUploading] = useState(false)
     
     useEffect(()=>{
         if(status === 'authenticated'){
@@ -45,6 +47,7 @@ export default function Profile(){
             console.log('upload2')
             const data = new FormData
             data.set('file',files[0])
+            setIsUploading(true)
             const response = await fetch('/api/upload',{
                 method : 'POST',
                 headers : {'contetn-type':'multipart/form-data'},
@@ -52,6 +55,7 @@ export default function Profile(){
             })
             const link = await response.json()
             setImage(link)
+            setIsUploading(false)
 
 
         }
@@ -70,13 +74,14 @@ export default function Profile(){
                 Profile
             </h1>
             <div className="max-w-xs mx-auto" >
-            {isSaving && (
-                    <h2 className="text-center bg-blue-100 p-4 rounded-full mb-2 border-2 border-blue-400">Saving...</h2>
-
+                {isSaving && (
+                    <Info>Saving...</Info>
+                )}
+                 {isUploading && (
+                    <Info>Uploading...</Info>
                 )}
                 {saved && (
-                    <h2 className="text-center bg-green-100 p-4 rounded-full mb-2 border-2 border-green-400">Profile Saved!</h2>
-
+                    <SuccessBox>Profile Saved!</SuccessBox>
                 )}
                 <div className="flex gap-2 items-center">
                     <div>
