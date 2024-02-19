@@ -1,7 +1,7 @@
 'use client';
 import { signOut, useSession } from "next-auth/react";
 import Link  from "next/link";
-// import Image from "next/image";
+import Image from "next/image";
 export default function Header() {
   const session = useSession();
   console.log(session)
@@ -17,7 +17,7 @@ export default function Header() {
     return(
         <header className="my-6 flex items-center justify-between">
         
-        <Link className="text-red-500 font-semibold text-2xl" href="">Easy Order</Link>
+        <Link className="ml-5" href=""><Image src={'/Logo.jpg'} alt="Background" width={120} height={80} /></Link>
 
         <nav className="flex  items-center gap-8 text-gray-400 font-semibold">
           <Link href="">Home</Link>
@@ -38,7 +38,7 @@ export default function Header() {
           {status === 'unauthenticated'&&(
             <>
               <Link href={'/pages/login'}>Login</Link>
-              <Link href={'/pages/register'} className="bg-red-500 rounded-full text-white px-6 py-2">Register</Link>
+              <Link href={'/pages/register'} className="bg-red-500 rounded-full text-white px-6 py-2 mr-5">Register</Link>
             </>
           )}
         </nav>

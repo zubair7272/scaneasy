@@ -31,7 +31,7 @@
 .hero-buttons button {
   margin-right: 10px;
   padding: 10px 80px 10px 80px;
-  background-color: #433e8b;
+  background-color: #1f4797;
   color: white;
   white-space: nowrap;
   border: none;
@@ -41,7 +41,7 @@
 }
 
 .hero-buttons button:hover {
-  background-color: #0b0470;
+  background-color: #4c6cac;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -182,7 +182,7 @@
 
   width: 50%;
   padding: 12px;
-  background-color: #3498db;
+  background-color: #1f4797;
   color: white;
   border: none;
   cursor: pointer;
@@ -191,7 +191,7 @@
 }
 
 .custom-card-container button:hover {
-  background-color: #1c4966;
+  background-color: #4c6cac;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
