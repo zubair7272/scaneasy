@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function Header() {
   const session = useSession();
   console.log(session)
-  const status  = session.status
+  const status  = session?.status
   const userData = session.data?.user;
   let userName = userData?.name || userData?.email
   if(userName && userName.includes(' ')){
