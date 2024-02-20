@@ -55,7 +55,20 @@
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   z-index: 999;
-  width: 40%;
+  width: 80%; /* Adjust width for mobile */
+  max-width: 320px; /* Limit width for smaller screens */
+}
+.contact-form-popup input,
+.contact-form-popup button.submit-button {
+  width: 100%; /* Full width inputs and buttons */
+}
+
+.contact-form-popup label {
+  margin-bottom: 8px; /* Reduce margin for labels */
+}
+
+.contact-form-popup button.submit-button {
+  margin-top: 16px; /* Add some space between input fields and button */
 }
 
 .close-button {
@@ -177,9 +190,8 @@
 }
 
 .custom-card-container button {
-  margin-top: 10px;
-  margin-left: 107px;
-
+  display: block; /* Ensure the button takes up full width */
+  margin: 0 auto;
   width: 50%;
   padding: 12px;
   background-color: #1f4797;
@@ -195,6 +207,36 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
+/* Add these media queries at the end of your existing CSS */
+
+/* For screens smaller than 768px (typical mobile phones) */
+@media only screen and (max-width: 768px) {
+  .centered-headings h3 {
+    font-size: 1.5rem; /* Adjust font size for headings */
+    margin-bottom: 0.5rem; /* Reduce margin bottom for headings */
+  }
+
+  .centered-headings h1 {
+    font-size: 2rem; /* Adjust font size for main heading */
+    margin-bottom: 1rem; /* Reduce margin bottom for main heading */
+  }
+
+  .check-list {
+    padding-left: 0; /* Remove left padding for the list */
+    list-style: none; /* Remove list bullets */
+  }
+
+  .check-list li {
+    font-size: 1rem; /* Adjust font size for list items */
+    margin-bottom: 0.5rem; /* Reduce margin bottom for list items */
+  }
+
+  .custom-card-container {
+    max-width: 320px; /* Limit max width for card container */
+    margin: 0 auto; /* Center align card container */
+    text-align: center; /* Center align text within card container */
+  }
+}
 
 
 /* Responsive */
