@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^2.3.3",
-    "@aws-sdk/client-s3": "^3.511.0",
+    "@aws-sdk/client-s3": "^3.515.0",
     "auth": "^1.0.2",
     "bcrypt": "^5.1.1",
     "dotenv": "^16.4.1",
@@ -20,7 +20,9 @@
     "next-auth": "^4.24.6",
     "react": "^18",
     "react-dom": "^18",
-    "react-hot-toast": "^2.4.1"
+    "react-hot-toast": "^2.4.1",
+    "react-native": "^0.73.4",
+    "uniqid": "^5.4.0"
   },
   "devDependencies": {
     "@types/node": "20.11.10",
