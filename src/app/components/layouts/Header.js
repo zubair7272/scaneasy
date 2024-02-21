@@ -4,13 +4,10 @@ import Link  from "next/link";
 import Image from "next/image";
 export default function Header() {
   const session = useSession();
-<<<<<<< HEAD
-  // console.log(session)
-  const status  = session.status
-=======
+
+
   console.log(session)
   const status  = session?.status
->>>>>>> 1f05d08460bd7d935dddb5d92356aaabc94c345f
   const userData = session.data?.user;
   let userName = userData?.name || userData?.email
   if(userName && userName.includes(' ')){
