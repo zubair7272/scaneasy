@@ -7,16 +7,16 @@ import { useEffect, useState } from "react";
 // import { info } from "console";
 import Info from "../../components/layouts/Info";
 import SuccessBox from "../../components/layouts/SuccessBox"
+import toast from "react-hot-toast";
+import { resolve } from "path";
+import { rejects } from "assert";
 
 export default function Profile(){
     const session = useSession();
     // console.log(session)
     const {status} = session
     const [Username,setUsername]= useState('')
-    const[saved,setsaved] = useState(false)
-    const[isSaving,setisSaving] = useState(false)
     const[image,setImage] = useState('')
-    const[isUploading,setIsUploading] = useState(false)
     
     useEffect(()=>{
         if(status === 'authenticated'){
@@ -27,17 +27,24 @@ export default function Profile(){
 
     async function handleProfileUpdate(ev){
         ev.preventDefault()
-        setsaved(false)
-        setisSaving(true)
-        const response = await fetch('/api/profile', {
-            method:'PUT',
-            headers : {'content-type' : 'application/json'},
-            body : JSON.stringify({name:Username,image}),
+        const savingPromise = new Promise(async (resolve,reject)=>{
+            const response = await fetch('/api/profile', {
+                method:'PUT',
+                headers : {'content-type' : 'application/json'},
+                body : JSON.stringify({name:Username,image}),
+            })
+            if(response.ok){
+                resolve()
+            }
+            else reject()
+        });
+        await toast.promise(savingPromise,{
+            loading : 'Saving...',
+            success : 'Profile Saved',
+            error : 'Error'
         })
-        setisSaving(false)
-        if(response.ok){
-            setsaved(true)
-        }
+        
+        
 
     }
     
@@ -49,15 +56,30 @@ export default function Profile(){
             console.log('upload2')
             const data = new FormData
             data.set('file',files[0])
-            setIsUploading(true)
-            const response = await fetch('/api/upload',{
-                method : 'POST',
-                headers : {'contetn-type':'multipart/form-data'},
-                body : data
+            const uploadPromise = new Promise(async (resolve , reject)=>{
+                const response = await fetch('/api/upload',{
+                    method : 'POST',
+                    headers : {'contetn-type':'multipart/form-data'},
+                    body : data
+                })
+                if(response.ok){
+                    const link = await response.json()
+                    setImage(link)
+                    resolve();
+                }
+            else{
+                reject();
+            }
+               
+
             })
-            const link = await response.json()
-            setImage(link)
-            setIsUploading(false)
+            toast.promise(uploadPromise,{
+                loading : 'Uploading...',
+                success : 'Upload Succefull',
+                error : 'Error'
+            })
+            
+            
 
 
         }
@@ -76,16 +98,7 @@ export default function Profile(){
                 Profile
             </h1>
             <div className="max-w-xs mx-auto" >
-                {isSaving && (
-                    <Info>Saving...</Info>
-                )}
-                 {isUploading && (
-                    <Info>Uploading...</Info>
-                )}
-                {saved && (
-                    <SuccessBox>Profile Saved!</SuccessBox>
-                )}
-                <div className="flex gap-2 items-center">
+                <div className="flex gap-2">
                     <div>
                     
                         <div className="bg-gray-300 p-2 rounded-full mb-1">
@@ -109,6 +122,16 @@ export default function Profile(){
                     <form className="grow" onSubmit={handleProfileUpdate}>
                         <input type="text" placeholder="Name" value={Username} onChange={ev => setUsername(ev.target.value)} />
                         <input type="text" value={session.data.user.email} disabled={true} />
+                        <input type="text" placeholder="Restaurant Name"/>
+                        <input type="text" placeholder="Restaurant Address" />
+                        <div className="flex">
+
+                            <input type="text"  placeholder="City"/>
+                            <input type="text" placeholder="Postal Code"/>
+                        </div> 
+                        <input type="text" placeholder="Country"/>
+
+
                         <button type="submit">Save</button>
                     </form>
                 </div>

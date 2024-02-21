@@ -8,7 +8,6 @@ export async function PUT(req){
     mongoose.connect(process.env.MONGO_URL)
     const data = await req.json(); 
     const session = await getServerSession(authOptions);
-    // console.log(session)
     const email = session.user.email;
     // const user = await findOne({email})
     const update = {}
