@@ -17,7 +17,13 @@ export default function Profile(){
     const {status} = session
     const [Username,setUsername]= useState('')
     const[image,setImage] = useState('')
-    
+    const [phone, setPhone] = useState('');
+    const [RestaurantName, setRestaurantName] = useState('');
+    const [RestaurantAddress, setRestaurantAddress ] = useState('');
+    const [PostalCode, setPostalCode ] = useState('');
+    const [City, setCity ] = useState('');
+    const [Country, setCountry ] = useState('');
+
     useEffect(()=>{
         if(status === 'authenticated'){
             setUsername(session.data.user.name)
@@ -121,15 +127,32 @@ export default function Profile(){
                     
                     <form className="grow" onSubmit={handleProfileUpdate}>
                         <input type="text" placeholder="Name" value={Username} onChange={ev => setUsername(ev.target.value)} />
-                        <input type="text" value={session.data.user.email} disabled={true} />
-                        <input type="text" placeholder="Restaurant Name"/>
-                        <input type="text" placeholder="Restaurant Address" />
-                        <div className="flex">
+                        <input type="text" value={session.data.user.email} disabled={true} />                    
+                        <input 
+                            type="text" placeholder="Restaurant Name"
+                            value={RestaurantName} onChange={ev => setRestaurantName(ev.target.value)}
+                        />
+                        <input 
+                            type="tel" placeholder="Phone Number" 
+                            value={phone} onChange={ev => setPhone(ev.target.value)}
+                        />
+                        <input 
+                            type="text" placeholder="Restaurant Address" 
+                            value={RestaurantAddress} onChange={ev => setRestaurantAddress(ev.target.value)}
+                        />
 
-                            <input type="text"  placeholder="City"/>
-                            <input type="text" placeholder="Postal Code"/>
+                        <div className="flex">
+                            <input 
+                                type="text"  placeholder="City"
+                                value={City} onChange={ev => setCity(ev.target.value)}
+                            />
+                            <input 
+                                type="text" placeholder="Postal Code"
+                                value={PostalCode} onChange={ev => setPostalCode(ev.target.value)}
+                            />
                         </div> 
-                        <input type="text" placeholder="Country"/>
+                        <input type="text" placeholder="Country"
+                            value={Country} onChange={ev => setCountry(ev.target.value)}/>
 
 
                         <button type="submit">Save</button>
