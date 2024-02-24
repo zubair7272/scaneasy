@@ -11,6 +11,8 @@ import toast from "react-hot-toast";
 import { resolve } from "path";
 import { rejects } from "assert";
 import { data } from "autoprefixer";
+import Link from "next/link";
+import UserTabs from "../../components/layouts/Tabs"
 
 export default function Profile(){
     const session = useSession();
@@ -25,6 +27,8 @@ export default function Profile(){
     const [PostalCode, setPostalCode ] = useState('');
     const [City, setCity ] = useState('');
     const [Country, setCountry ] = useState('');
+    const[isAdmin, setIsAdmin] = useState(false)
+    
 
     useEffect(()=>{
         if(status === 'authenticated'){
@@ -38,6 +42,7 @@ export default function Profile(){
                     setPostalCode(data.PostalCode);
                     setCity(data.City);
                     setCountry(data.Country);
+                    setIsAdmin(data.admin);
                 })
             });
 
@@ -123,10 +128,10 @@ export default function Profile(){
     
     return (
         <section>
-            <h1 className="text-center text-red-500 text-4xl mb-4">
-                Profile
-            </h1>
-            <div className="max-w-xs mx-auto" >
+            <UserTabs isAdmin={isAdmin}/>
+
+            
+            <div className="max-w-xs mx-auto mt-8" >
                 <div className="flex gap-2">
                     <div>
                     

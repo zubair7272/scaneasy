@@ -13,6 +13,7 @@ const UserSchema = new Schema ({
     RestaurantAddress: {type :  String},
     PostalCode: {type :  String},
     Country: {type :  String},
+    admin: {type: Boolean, default: false}
  },{timestamps: true});
 
 
