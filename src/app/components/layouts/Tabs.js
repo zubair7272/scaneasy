@@ -8,27 +8,27 @@ export default function UserTabs({isAdmin}) {
     <div className="flex mx-auto gap-2 tabs justify-center flex-wrap">
       <Link
         className={path === '/profile' ? 'active' : ''}
-        href={'/pages/Profile'}
+        href={'/Profile'}
       >
         Profile
       </Link>
       {isAdmin && (
         <>
           <Link
-            href={'/pages/categories'}
+            href={'/categories'}
             className={path === '/categories' ? 'active' : ''}
           >
             Categories
           </Link>
           <Link
-            href={'pages/menu-items'}
-            className={path.includes('menu-items') ? 'active' : ''}
+            href={'/pages/menu-items'}
+            className={path.includes('/pages/menu-items') ? 'active' : ''}
           >
             Menu Items
           </Link>
           <Link
             className={path.includes('/users') ? 'active' : ''}
-            href={'pages/users'}
+            href={'/users'}
           >
             Users
           </Link>
