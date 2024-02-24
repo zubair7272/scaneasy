@@ -141,7 +141,7 @@ export default function Profile(){
                             value={RestaurantAddress} onChange={ev => setRestaurantAddress(ev.target.value)}
                         />
 
-                        <div className="flex">
+                        <div className="flex gap-0 ">
                             <input 
                                 type="text"  placeholder="City"
                                 value={City} onChange={ev => setCity(ev.target.value)}
