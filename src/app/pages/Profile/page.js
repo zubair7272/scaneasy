@@ -3,7 +3,7 @@ import { useSession } from "next-auth/react";
 // import { redirect } from "next/dist/server/api-utils";
 import { redirect } from "next/navigation";
 import Image from "next/image"
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 // import { info } from "console";
 import Info from "../../components/layouts/Info";
 import SuccessBox from "../../components/layouts/SuccessBox"
@@ -28,6 +28,7 @@ export default function Profile(){
     const [City, setCity ] = useState('');
     const [Country, setCountry ] = useState('');
     const[isAdmin, setIsAdmin] = useState(false)
+    const[profileFetched,setProfileFetched] = useState(false)
     
 
     useEffect(()=>{
@@ -43,6 +44,7 @@ export default function Profile(){
                     setCity(data.City);
                     setCountry(data.Country);
                     setIsAdmin(data.admin);
+                    setProfileFetched(true)
                 })
             });
 
@@ -119,9 +121,7 @@ export default function Profile(){
         }
 
     }
-
-    
-    if(status === 'loading'){
+    if(status === 'loading' || !profileFetched){
         return 'Loading...'
     }
     else if(status === 'unauthenticated'){
