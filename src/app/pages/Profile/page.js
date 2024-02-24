@@ -149,33 +149,68 @@ export default function Profile(){
                     </div>
                     
                     <form className="grow" onSubmit={handleProfileUpdate}>
+                        <label>
+                            First and last name
+                        </label>
                         <input type="text" placeholder="Name" value={Username} onChange={ev => setUsername(ev.target.value)} />
-                        <input type="text" value={session.data.user.email} disabled={true} />                    
+                        <label>
+                            email
+                        </label>
+                        <input 
+                            type="text" 
+                            value={session.data.user.email} 
+                            disabled={true} 
+                            placeholder={'email'}
+                        /> 
+                        <label>
+                            Restaurant Name
+                        </label>                   
                         <input 
                             type="text" placeholder="Restaurant Name"
                             value={RestaurantName} onChange={ev => setRestaurantName(ev.target.value)}
                         />
+                        <label>
+                            Phone Number
+                        </label> 
                         <input 
                             type="tel" placeholder="Phone Number" 
                             value={phone} onChange={ev => setPhone(ev.target.value)}
                         />
+                        <label>
+                            Restaurant Address
+                        </label> 
                         <input 
                             type="text" placeholder="Restaurant Address" 
                             value={RestaurantAddress} onChange={ev => setRestaurantAddress(ev.target.value)}
                         />
 
-                        <div className="flex gap-4 ">
+                        <div className="flex gap-2">
+                            <div>
+                                <label>
+                                     City
+                                </label> 
                             <input 
                                 style={{'margin':'0'}}
                                 type="text"  placeholder="City"
                                 value={City} onChange={ev => setCity(ev.target.value)}
                             />
+                            </div>
+                            
+                            <div>
+                                <label>
+                                    Postal Code
+                                 </label> 
                             <input  
                                 style={{'margin':'0'}}
                                 type="text" placeholder="Postal Code"
                                 value={PostalCode} onChange={ev => setPostalCode(ev.target.value)}
                             />
+                            </div>
+                            
                         </div> 
+                        <label>
+                            Country
+                        </label> 
                         <input type="text" placeholder="Country"
                             value={Country} onChange={ev => setCountry(ev.target.value)}/>
 
