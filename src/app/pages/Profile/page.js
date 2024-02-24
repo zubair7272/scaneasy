@@ -129,7 +129,6 @@ export default function Profile(){
     return (
         <section>
             <UserTabs isAdmin={isAdmin}/>
-
             
             <div className="max-w-xs mx-auto mt-8" >
                 <div className="flex gap-2">
