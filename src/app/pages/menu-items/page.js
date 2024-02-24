@@ -1,6 +1,6 @@
 'use client';
-import UserTabs from "@components/layout/UserTabs";
-import {useProfile} from "@components/UserProfile";
+import UserTabs from "../../components/layouts/Tabs";
+import {useProfile} from "../../components/UseProfile";
  export default function MenuItemsPage(){
     const {loading, data} = useProfile();
     if (loading){
