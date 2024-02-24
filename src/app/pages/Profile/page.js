@@ -37,7 +37,16 @@ export default function Profile(){
             const response = await fetch('/api/profile', {
                 method:'PUT',
                 headers : {'content-type' : 'application/json'},
-                body : JSON.stringify({name:Username,image}),
+                body : JSON.stringify({
+                    name:Username,
+                    image,
+                    phone,
+                    RestaurantAddress,
+                    RestaurantName,
+                    City,
+                    Country,
+                    PostalCode
+                }),
             })
             if(response.ok){
                 resolve()
@@ -141,7 +150,7 @@ export default function Profile(){
                             value={RestaurantAddress} onChange={ev => setRestaurantAddress(ev.target.value)}
                         />
 
-                        <div className="flex">
+                        <div className="flex gap-0 ">
                             <input 
                                 type="text"  placeholder="City"
                                 value={City} onChange={ev => setCity(ev.target.value)}
