@@ -10,9 +10,11 @@ import SuccessBox from "../../components/layouts/SuccessBox"
 import toast from "react-hot-toast";
 import { resolve } from "path";
 import { rejects } from "assert";
+import { data } from "autoprefixer";
 
 export default function Profile(){
     const session = useSession();
+
     // console.log(session)
     const {status} = session
     const [Username,setUsername]= useState('')
@@ -26,9 +28,21 @@ export default function Profile(){
 
     useEffect(()=>{
         if(status === 'authenticated'){
-            setUsername(session.data.user.name)
+            setUsername(session.data.user.name);
+            setImage(session.data.user.image);
+            fetch('/api/profile').then(response => {
+                response.json().then(data => {
+                    setPhone(data.phone);
+                    setRestaurantName(data.RestaurantName);
+                    setRestaurantAddress(data.RestaurantAddress);
+                    setPostalCode(data.PostalCode);
+                    setCity(data.City);
+                    setCountry(data.Country);
+                })
+            });
+
         }
-        setImage(session.data.user.image)
+        
     }, [session,status]);
 
     async function handleProfileUpdate(ev){
@@ -45,7 +59,7 @@ export default function Profile(){
                     RestaurantName,
                     City,
                     Country,
-                    PostalCode
+                    PostalCode,
                 }),
             })
             if(response.ok){
@@ -150,12 +164,14 @@ export default function Profile(){
                             value={RestaurantAddress} onChange={ev => setRestaurantAddress(ev.target.value)}
                         />
 
-                        <div className="flex gap-0 ">
+                        <div className="flex gap-4 ">
                             <input 
+                                style={{'margin':'0'}}
                                 type="text"  placeholder="City"
                                 value={City} onChange={ev => setCity(ev.target.value)}
                             />
-                            <input 
+                            <input  
+                                style={{'margin':'0'}}
                                 type="text" placeholder="Postal Code"
                                 value={PostalCode} onChange={ev => setPostalCode(ev.target.value)}
                             />
