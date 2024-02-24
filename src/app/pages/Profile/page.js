@@ -10,9 +10,11 @@ import SuccessBox from "../../components/layouts/SuccessBox"
 import toast from "react-hot-toast";
 import { resolve } from "path";
 import { rejects } from "assert";
+import { data } from "autoprefixer";
 
 export default function Profile(){
     const session = useSession();
+
     // console.log(session)
     const {status} = session
     const [Username,setUsername]= useState('')
@@ -26,9 +28,21 @@ export default function Profile(){
 
     useEffect(()=>{
         if(status === 'authenticated'){
-            setUsername(session.data.user.name)
+            setUsername(session.data.user.name);
+            setImage(session.data.user.image);
+            fetch('/api/profile').then(response => {
+                response.json().then(data => {
+                    setPhone(data.phone);
+                    setRestaurantName(data.RestaurantName);
+                    setRestaurantAddress(data.RestaurantAddress);
+                    setPostalCode(data.PostalCode);
+                    setCity(data.City);
+                    setCountry(data.Country);
+                })
+            });
+
         }
-        setImage(session.data.user.image)
+        
     }, [session,status]);
 
     async function handleProfileUpdate(ev){
@@ -45,7 +59,7 @@ export default function Profile(){
                     RestaurantName,
                     City,
                     Country,
-                    PostalCode
+                    PostalCode,
                 }),
             })
             if(response.ok){
@@ -135,31 +149,68 @@ export default function Profile(){
                     </div>
                     
                     <form className="grow" onSubmit={handleProfileUpdate}>
+                        <label>
+                            First and last name
+                        </label>
                         <input type="text" placeholder="Name" value={Username} onChange={ev => setUsername(ev.target.value)} />
-                        <input type="text" value={session.data.user.email} disabled={true} />                    
+                        <label>
+                            email
+                        </label>
+                        <input 
+                            type="text" 
+                            value={session.data.user.email} 
+                            disabled={true} 
+                            placeholder={'email'}
+                        /> 
+                        <label>
+                            Restaurant Name
+                        </label>                   
                         <input 
                             type="text" placeholder="Restaurant Name"
                             value={RestaurantName} onChange={ev => setRestaurantName(ev.target.value)}
                         />
+                        <label>
+                            Phone Number
+                        </label> 
                         <input 
                             type="tel" placeholder="Phone Number" 
                             value={phone} onChange={ev => setPhone(ev.target.value)}
                         />
+                        <label>
+                            Restaurant Address
+                        </label> 
                         <input 
                             type="text" placeholder="Restaurant Address" 
                             value={RestaurantAddress} onChange={ev => setRestaurantAddress(ev.target.value)}
                         />
 
-                        <div className="flex gap-0 ">
+                        <div className="flex gap-2">
+                            <div>
+                                <label>
+                                     City
+                                </label> 
                             <input 
+                                style={{'margin':'0'}}
                                 type="text"  placeholder="City"
                                 value={City} onChange={ev => setCity(ev.target.value)}
                             />
-                            <input 
+                            </div>
+                            
+                            <div>
+                                <label>
+                                    Postal Code
+                                 </label> 
+                            <input  
+                                style={{'margin':'0'}}
                                 type="text" placeholder="Postal Code"
                                 value={PostalCode} onChange={ev => setPostalCode(ev.target.value)}
                             />
+                            </div>
+                            
                         </div> 
+                        <label>
+                            Country
+                        </label> 
                         <input type="text" placeholder="Country"
                             value={Country} onChange={ev => setCountry(ev.target.value)}/>
 
