@@ -15,7 +15,7 @@ export default function UserTabs({isAdmin}) {
       {isAdmin && (
         <>
           <Link
-            href={'/categories'}
+            href={'pages/categories'}
             className={path === '/categories' ? 'active' : ''}
           >
             Categories
