@@ -12,6 +12,5 @@ export function useProfile() {
       });
     })
   }, []);
-
   return {loading, data};
 }

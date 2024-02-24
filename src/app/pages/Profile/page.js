@@ -29,28 +29,20 @@ export default function Profile(){
     const [Country, setCountry ] = useState('');
     const[isAdmin, setIsAdmin] = useState(false)
     const[profileFetched,setProfileFetched] = useState(false)
+    const [user, setUser] = useState(null);
     
 
-    useEffect(()=>{
-        if(status === 'authenticated'){
-            setUsername(session.data.user.name);
-            setImage(session.data.user.image);
-            fetch('/api/profile').then(response => {
-                response.json().then(data => {
-                    setPhone(data.phone);
-                    setRestaurantName(data.RestaurantName);
-                    setRestaurantAddress(data.RestaurantAddress);
-                    setPostalCode(data.PostalCode);
-                    setCity(data.City);
-                    setCountry(data.Country);
-                    setIsAdmin(data.admin);
-                    setProfileFetched(true)
-                })
-            });
-
+    useEffect(() => {
+        if (status === 'authenticated') {
+           fetch('/api/profile').then(response => {
+            response.json().then(data => {
+              setUser(data);
+              setIsAdmin(data.admin);
+              setProfileFetched(true);
+            })
+          });
         }
-        
-    }, [session,status]);
+      }, [session, status]);
 
     async function handleProfileUpdate(ev){
         ev.preventDefault()

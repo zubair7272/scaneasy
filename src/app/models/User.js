@@ -7,13 +7,6 @@ const UserSchema = new Schema ({
     email : {type : String,required:true,unique:true},
     password : {type : String,required:true,},
     image : {type : String},
-    phone: {type :  String},
-    City: {type :  String},
-    RestaurantName: {type :  String},
-    RestaurantAddress: {type :  String},
-    PostalCode: {type :  String},
-    Country: {type :  String},
-    admin: {type: Boolean, default: false}
  },{timestamps: true});
 
 
