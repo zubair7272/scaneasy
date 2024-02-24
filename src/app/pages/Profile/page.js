@@ -37,7 +37,16 @@ export default function Profile(){
             const response = await fetch('/api/profile', {
                 method:'PUT',
                 headers : {'content-type' : 'application/json'},
-                body : JSON.stringify({name:Username,image}),
+                body : JSON.stringify({
+                    name:Username,
+                    image,
+                    phone,
+                    RestaurantAddress,
+                    RestaurantName,
+                    City,
+                    Country,
+                    PostalCode
+                }),
             })
             if(response.ok){
                 resolve()
