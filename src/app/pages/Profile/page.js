@@ -119,6 +119,8 @@ export default function Profile(){
         }
 
     }
+
+    
     if(status === 'loading'){
         return 'Loading...'
     }
