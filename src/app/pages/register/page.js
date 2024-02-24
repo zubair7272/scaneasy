@@ -4,7 +4,6 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react";
-import { Colors } from "react-native/Libraries/NewAppScreen";
 // import { json } from "stream/consumers";
 export default function Register(){
     const [email,setEmail] = useState('')
