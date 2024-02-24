@@ -1,3 +1,4 @@
+/* eslint-disable */
 import mongoose from "mongoose"
 import NextAuth from "next-auth"
 import { User } from "../../../models/User"
