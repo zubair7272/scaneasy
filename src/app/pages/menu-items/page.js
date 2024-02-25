@@ -1,7 +1,12 @@
 'use client';
+import Image from "next/image";
 import UserTabs from "../../components/layouts/Tabs";
 import {useProfile} from "../../components/UseProfile";
+import EditableImage from "../../components/layouts/EditableImage"
+import { useState } from "react";
+
  export default function MenuItemsPage(){
+    const [image, setImage] = useState('');
     const {loading, data} = useProfile();
     if (loading){
         return 'Loading user info...';
@@ -16,7 +21,7 @@ import {useProfile} from "../../components/UseProfile";
              <form className="mt-8 max-w-md mx-auto">
                 <div className="flex items-start gap-4">
                     <div>
-                        image
+                    <EditableImage className="flex gap-2" link={image} setLink={setImage}/>
                     </div>
                     <div className="grow">
                         <label>Item name</label>

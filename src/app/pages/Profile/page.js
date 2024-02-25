@@ -13,6 +13,7 @@ import { rejects } from "assert";
 import { data } from "autoprefixer";
 import Link from "next/link";
 import UserTabs from "../../components/layouts/Tabs"
+import EditableImage from "../../components/layouts/EditableImage"
 
 export default function Profile(){
     const session = useSession();
@@ -84,43 +85,7 @@ export default function Profile(){
 
     }
     
-    async function handleOnUpload(ev){
-        // console.log('upload')
-        const files = ev.target.files
-        // console.log(files)
-        if(files?.length === 1){
-            console.log('upload2')
-            const data = new FormData
-            data.set('file',files[0])
-            const uploadPromise = new Promise(async (resolve , reject)=>{
-                const response = await fetch('/api/upload',{
-                    method : 'POST',
-                    headers : {'contetn-type':'multipart/form-data'},
-                    body : data
-                })
-                if(response.ok){
-                    const link = await response.json()
-                    setImage(link)
-                    resolve();
-                }
-            else{
-                reject();
-            }
-               
-
-            })
-            toast.promise(uploadPromise,{
-                loading : 'Uploading...',
-                success : 'Upload Succefull',
-                error : 'Error'
-            })
-            
-            
-
-
-        }
-
-    }
+    
     if(status === 'loading' || !profileFetched){
         return 'Loading...'
     }
@@ -136,19 +101,8 @@ export default function Profile(){
                 <div className="flex gap-2">
                     <div>
                     
-                        <div className="bg-gray-300 p-2 rounded-full mb-1">
-                            {image &&(
-                                <Image className="rounded-full" src={image} width={80} height={80} alt={'Profile Picture'} />
-
-                            )}
-                        </div>
-                        <label>
-
-                            <input type="file" className="hidden"  onChange={handleOnUpload}/>
-                            <span className=" block border border-gray-300 rounded-lg text-center cursor-pointer">
-                                Edit
-                            </span>
-                        </label>
+                        
+                        <EditableImage className="flex gap-2" link={image} setLink={setImage}/>
                             {/* <button type="button">Edit</button>  */}
                             
 
