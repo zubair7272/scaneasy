@@ -1,5 +1,6 @@
 import Image from "next/image";
-import coast from "react-hot-toast";
+import toast from "react-hot-toast";
+
 export default function EditabbleImage({link, setLink}){
     async function handleOnUpload(ev){
         // console.log('upload')
@@ -17,7 +18,7 @@ export default function EditabbleImage({link, setLink}){
                 })
                 if(response.ok){
                     const link = await response.json()
-                    setImage(link)
+                    setLink(link)
                     resolve();
                 }
             else{
@@ -43,9 +44,14 @@ export default function EditabbleImage({link, setLink}){
         <div className="flex gap-2 bg-gray-300 p-2 rounded-full mb-1 max-w-xs mx-auto mt-8">
         {link &&(
             
-                <Image className="rounded-full" src={image} width={80} height={80} alt={'Profile Picture'} />
+                <Image className="rounded-lg w-full h-full mb-1" src={link} width={80} height={80} alt={'Profile Picture'} />
             
             )}
+        {!link && (
+        <div className="text-center bg-gray-200 p-4 text-gray-500 rounded-lg mb-1 ">
+          No image
+        </div>
+      )}
         </div>
 
         <label>

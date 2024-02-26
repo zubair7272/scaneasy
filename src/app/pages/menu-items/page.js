@@ -19,9 +19,11 @@ import { useState } from "react";
         <section className="mt-8">
              <UserTabs isAdmin={true} />
              <form className="mt-8 max-w-md mx-auto">
-                <div className="flex items-start gap-4">
+                <div className="grid items-start gap-4" 
+                style={{gridTemplateColumns : '.3fr .7fr'}}
+                >
                     <div>
-                    <EditableImage className="flex gap-2" link={image} setLink={setImage}/>
+                    <EditableImage link={image} setLink={setImage}/>
                     </div>
                     <div className="grow">
                         <label>Item name</label>
