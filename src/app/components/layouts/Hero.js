@@ -149,7 +149,7 @@ const [formData, setFormData] = useState({
       Pricing
     </h1>
     <p className="text-gray-500 text-sm">Services List</p>
-    <button className="mt-4 bg-red-500 text-white rounded-full px-8 py-2" onClick={openContactForm}>Get A Quote</button>
+    <button className="mt-4 bg-blue-700 text-white rounded-full px-8 py-2" onClick={openContactForm}>Get A Quote</button>
   </div>
 </div>
 

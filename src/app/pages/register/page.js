@@ -33,7 +33,7 @@ export default function Register(){
     return(
         <section className="mt-9">
 
-            <h1 className="text-center text-red-500 text-4xl mb-4">Register</h1>
+            <h1 className="text-center text-blue-700 text-4xl mb-4">Register</h1>
             {UserCreated &&(
                 <div className="my-4 text-center">
                     User Created Succesfully!<br></br> You Can <Link href={'/login'}>Login Now &raquo;</Link>
@@ -54,7 +54,7 @@ export default function Register(){
             <div>
                 <button className="flex gap-4 justify-center">
                     <Image src={'/Google.png'} width={32} height={32} />
-                    <p className="mt-1">
+                    <p className="mt-1 text-white">
                         Login With Google
                     </p>
                 </button>

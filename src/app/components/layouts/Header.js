@@ -31,7 +31,7 @@ export default function Header() {
           {status === 'authenticated' && (
             <>
             <Link href={'/pages/Profile'}>Hello,{userName}</Link>
-            <button onClick={()=> signOut()} className="bg-red-500 rounded-full text-white px-6 py-2">
+            <button onClick={()=> signOut()} className="bg-blue-700 rounded-full text-white px-6 py-2">
               Logout
             </button>
             </>
@@ -40,7 +40,7 @@ export default function Header() {
           {status === 'unauthenticated'&&(
             <>
               <Link href={'/pages/login'}>Login</Link>
-              <Link href={'/pages/register'} className="bg-red-500 rounded-full text-white px-6 py-2 mr-5">Register</Link>
+              <Link href={'/pages/register'} className="bg-blue-700 rounded-full text-white px-6 py-2 mr-5">Register</Link>
             </>
           )}
         </nav>

@@ -1,44 +1,64 @@
 'use client';
+// import Right from "@/components/icons/Right";
+import UserTabs from "../..components/layouts/Tabs.js";
+import {useProfile} from "@/components/UseProfile";
 import Image from "next/image";
-import UserTabs from "../../components/layouts/Tabs";
-import {useProfile} from "../../components/UseProfile";
-import EditableImage from "../../components/layouts/EditableImage"
-import { useState } from "react";
+import Link from "next/link";
+import {useEffect, useState} from "react";
 
- export default function MenuItemsPage(){
-    const [image, setImage] = useState('');
-    const {loading, data} = useProfile();
-    if (loading){
-        return 'Loading user info...';
-    }
+export default function MenuItemsPage() {
 
-    if(!data.admin){
-        return 'Not an admin.';
-    }
-    return(
-        <section className="mt-8">
-             <UserTabs isAdmin={true} />
-             <form className="mt-8 max-w-md mx-auto">
-                <div className="grid items-start gap-4" 
-                style={{gridTemplateColumns : '.3fr .7fr'}}
-                >
-                    <div>
-                    <EditableImage link={image} setLink={setImage}/>
-                    </div>
-                    <div className="grow">
-                        <label>Item name</label>
-                        <input type="text"/>
-                        <label>Description</label>
-                        <input type="text"/>
-                        <label>Base Price</label>
-                        <input type="text"/>
-                        <button type="submit">Save</button>
-                    </div>
-                    {/* <div>
-                        <button type="submit" className="mb-2">Create</button>
-                    </div> */}
-                </div>
-             </form>
-         </section>
-         );
+  const [menuItems, setMenuItems] = useState([]);
+  const {loading, data} = useProfile();
+
+  useEffect(() => {
+    fetch('/api/menu-items').then(res => {
+      res.json().then(menuItems => {
+        setMenuItems(menuItems);
+      });
+    })
+  }, []);
+
+  if (loading) {
+    return 'Loading user info...';
+  }
+
+  if (!data.admin) {
+    return 'Not an admin.';
+  }
+
+  return (
+    <section className="mt-8 max-w-2xl mx-auto">
+      <UserTabs isAdmin={true} />
+      <div className="mt-8">
+        <Link
+          className="button flex"
+          href={'/menu-items/new'}>
+          <span>Crete new menu item</span>
+          <Right />
+        </Link>
+      </div>
+      <div>
+        <h2 className="text-sm text-gray-500 mt-8">Edit menu item:</h2>
+        <div className="grid grid-cols-3 gap-2">
+          {menuItems?.length > 0 && menuItems.map(item => (
+            <Link
+              key={item._id}
+              href={'/menu-items/edit/'+item._id}
+              className="bg-gray-200 rounded-lg p-4"
+            >
+              <div className="relative">
+                <Image
+                  className="rounded-md"
+                  src={item.image} alt={''} width={200} height={200} />
+              </div>
+              <div className="text-center">
+                {item.name}
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }

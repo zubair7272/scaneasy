@@ -18,7 +18,7 @@ export default function LoginPage() {
   }
   return (
     <section className="mt-8">
-      <h1 className="text-center text-red-500 text-4xl mb-4">
+      <h1 className="text-center text-blue-700 text-4xl mb-4">
         Login
       </h1>
       <form className="max-w-xs mx-auto" onSubmit={handleFormSubmit}>
@@ -35,7 +35,7 @@ export default function LoginPage() {
         <button  type="button" onClick={() => signIn('google', {callbackUrl: '/'})}
                 className="flex gap-4 justify-center">
           <Image src={'/Google.png'} alt={''} width={24} height={24} />
-          Login with google
+          with google
         </button>
       </form>
     </section>

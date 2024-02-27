@@ -7,7 +7,7 @@ export default function Items(){
                 Item Name Here
             </h4>
             <p className="text-gray-500 text-sm">Item Description Here</p>
-            <button className="mt-4 bg-red-500 text-white rounded-full px-8  py-2">Add To Cart</button>
+            <button className="mt-4 bg-blue-700 text-white rounded-full px-8  py-2">Add To Cart</button>
         </div>
     );
 }
