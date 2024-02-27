@@ -2,8 +2,8 @@
 // import Right from "@/components/icons/Right";
 import UserTabs from "../..components/layouts/Tabs.js";
 import {useProfile} from "@/components/UseProfile";
-import Image from "next/image";
-import Link from "next/link";
+// import Image from "next/image";
+// import Link from "next/link";
 import {useEffect, useState} from "react";
 
 export default function MenuItemsPage() {
