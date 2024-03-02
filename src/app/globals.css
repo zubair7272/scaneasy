@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+select,
 input[type="email"],
 input[type="password"],
 input[type="tel"],

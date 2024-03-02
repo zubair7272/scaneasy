@@ -1,8 +1,8 @@
 'use client';
-// import Left from "@/components/icons/Left";
-// import Right from "@/components/icons/Right";
-import EditableImage from "../../components/layout/EditableImage";
-// import MenuItemForm from "@/components/layout/MenuItemForm";
+import Left from "../../../components/icons/Left";
+import Right from "../../../components/icons/Right";
+import EditableImage from "../../../components/layouts/EditableImage";
+import MenuItemForm from "../../../components/layouts/MenuItemForm";
 import UserTabs from "../../../components/layouts/Tabs";
 import {useProfile} from "../../../components/UseProfile";
 import Link from "next/link";
@@ -39,7 +39,7 @@ export default function NewMenuItemPage() {
   }
 
   if (redirectToItems) {
-    return redirect('/menu-items');
+    return redirect('/pages/menu-items');
   }
 
   if (loading) {
@@ -54,7 +54,7 @@ export default function NewMenuItemPage() {
     <section className="mt-8">
       <UserTabs isAdmin={true} />
       <div className="max-w-2xl mx-auto mt-8">
-        <Link href={'/menu-items'} className="button">
+        <Link href={'/pages/menu-items'} className="button">
           <Left />
           <span>Show all menu items</span>
         </Link>

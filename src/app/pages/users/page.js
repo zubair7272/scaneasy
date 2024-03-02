@@ -41,7 +41,7 @@ export default function UsersPage() {
               <span className="text-gray-500">{user.email}</span>
             </div>
             <div>
-              <Link className="button" href={'/users/'+user._id}>
+              <Link className="button" href={'/pages/users/'+user._id}>
                 Edit
               </Link>
             </div>

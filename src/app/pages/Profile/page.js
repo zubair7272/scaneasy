@@ -1,177 +1,73 @@
-'use client'
-import { useSession } from "next-auth/react";
-// import { redirect } from "next/dist/server/api-utils";
-import { redirect } from "next/navigation";
-import Image from "next/image"
-import { use, useEffect, useState } from "react";
-// import { info } from "console";
-import Info from "../../components/layouts/Info";
-import SuccessBox from "../../components/layouts/SuccessBox"
+'use client';
+// import EditableImage from "../../components/layouts/EditableImage";
+// import InfoBox from "../../components/layout/InfoBox";
+// import SuccessBox from "../../components/layout/SuccessBox";
+import UserForm from "../../components/layouts/UserForm";
+import UserTabs from "../../components/layouts/Tabs";
+import {useSession} from "next-auth/react";
+// import Image from "next/image";
+// import Link from "next/link";
+import {redirect} from "next/navigation";
+import {useEffect, useState} from "react";
 import toast from "react-hot-toast";
-import { resolve } from "path";
-import { rejects } from "assert";
-import { data } from "autoprefixer";
-import Link from "next/link";
-import UserTabs from "../../components/layouts/Tabs"
-import EditableImage from "../../components/layouts/EditableImage"
 
-export default function Profile(){
-    const session = useSession();
+export default function ProfilePage() {
+  const session = useSession();
 
-    // console.log(session)
-    const {status} = session
-    const [Username,setUsername]= useState('')
-    const[image,setImage] = useState('')
-    const [phone, setPhone] = useState('');
-    const [RestaurantName, setRestaurantName] = useState('');
-    const [RestaurantAddress, setRestaurantAddress ] = useState('');
-    const [PostalCode, setPostalCode ] = useState('');
-    const [City, setCity ] = useState('');
-    const [Country, setCountry ] = useState('');
-    const[isAdmin, setIsAdmin] = useState(false)
-    const[profileFetched,setProfileFetched] = useState(false)
-    const [user, setUser] = useState(null);
-    
+  const [user, setUser] = useState(null);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [profileFetched, setProfileFetched] = useState(false);
+  const {status} = session;
 
-    useEffect(() => {
-        if (status === 'authenticated') {
-           fetch('/api/profile').then(response => {
-            response.json().then(data => {
-              setUser(data);
-              setIsAdmin(data.admin);
-              setProfileFetched(true);
-            })
-          });
-        }
-      }, [session, status]);
-
-    async function handleProfileUpdate(ev){
-        ev.preventDefault()
-        const savingPromise = new Promise(async (resolve,reject)=>{
-            const response = await fetch('/api/profile', {
-                method:'PUT',
-                headers : {'content-type' : 'application/json'},
-                body : JSON.stringify({
-                    name:Username,
-                    image,
-                    phone,
-                    RestaurantAddress,
-                    RestaurantName,
-                    City,
-                    Country,
-                    PostalCode,
-                }),
-            })
-            if(response.ok){
-                resolve()
-            }
-            else reject()
-        });
-        await toast.promise(savingPromise,{
-            loading : 'Saving...',
-            success : 'Profile Saved',
-            error : 'Error'
+  useEffect(() => {
+    if (status === 'authenticated') {
+      fetch('/api/profile').then(response => {
+        response.json().then(data => {
+          setUser(data);
+          setIsAdmin(data.admin);
+          setProfileFetched(true);
         })
-        
-        
-
+      });
     }
-    
-    
-    if(status === 'loading' || !profileFetched){
-        return 'Loading...'
-    }
-    else if(status === 'unauthenticated'){
-        return redirect('/pages/login')
-    }
-    
-    return (
-        <section>
-            <UserTabs isAdmin={isAdmin}/>
-            
-            <div className="max-w-xs mx-auto mt-8" >
-                <div className="flex gap-2">
-                    <div>
-                    
-                        
-                        <EditableImage className="flex gap-2" link={image} setLink={setImage}/>
-                            {/* <button type="button">Edit</button>  */}
-                            
+  }, [session, status]);
 
-                    </div>
-                    
-                    <form className="grow" onSubmit={handleProfileUpdate}>
-                        <label>
-                            First and last name
-                        </label>
-                        <input type="text" placeholder="Name" value={Username} onChange={ev => setUsername(ev.target.value)} />
-                        <label>
-                            email
-                        </label>
-                        <input 
-                            type="text" 
-                            value={session.data.user.email} 
-                            disabled={true} 
-                            placeholder={'email'}
-                        /> 
-                        <label>
-                            Restaurant Name
-                        </label>                   
-                        <input 
-                            type="text" placeholder="Restaurant Name"
-                            value={RestaurantName} onChange={ev => setRestaurantName(ev.target.value)}
-                        />
-                        <label>
-                            Phone Number
-                        </label> 
-                        <input 
-                            type="tel" placeholder="Phone Number" 
-                            value={phone} onChange={ev => setPhone(ev.target.value)}
-                        />
-                        <label>
-                            Restaurant Address
-                        </label> 
-                        <input 
-                            type="text" placeholder="Restaurant Address" 
-                            value={RestaurantAddress} onChange={ev => setRestaurantAddress(ev.target.value)}
-                        />
+  async function handleProfileInfoUpdate(ev, data) {
+    ev.preventDefault();
 
-                        <div className="flex gap-2">
-                            <div>
-                                <label>
-                                     City
-                                </label> 
-                            <input 
-                                style={{'margin':'0'}}
-                                type="text"  placeholder="City"
-                                value={City} onChange={ev => setCity(ev.target.value)}
-                            />
-                            </div>
-                            
-                            <div>
-                                <label>
-                                    Postal Code
-                                 </label> 
-                            <input  
-                                style={{'margin':'0'}}
-                                type="text" placeholder="Postal Code"
-                                value={PostalCode} onChange={ev => setPostalCode(ev.target.value)}
-                            />
-                            </div>
-                            
-                        </div> 
-                        <label>
-                            Country
-                        </label> 
-                        <input type="text" placeholder="Country"
-                            value={Country} onChange={ev => setCountry(ev.target.value)}/>
+    const savingPromise = new Promise(async (resolve, reject) => {
+      const response = await fetch('/api/profile', {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data),
+      });
+      if (response.ok)
+        resolve()
+      else
+        reject();
+    });
 
+    await toast.promise(savingPromise, {
+      loading: 'Saving...',
+      success: 'Profile saved!',
+      error: 'Error',
+    });
 
-                        <button type="submit">Save</button>
-                    </form>
-                </div>
-            </div>
+  }
 
-        </section>
-    );
+  if (status === 'loading' || !profileFetched) {
+    return 'Loading...';
+  }
+
+  if (status === 'unauthenticated') {
+    return redirect('/login');
+  }
+
+  return (
+    <section className="mt-8">
+      <UserTabs isAdmin={isAdmin} />
+      <div className="max-w-2xl mx-auto mt-8">
+        <UserForm user={user} onSave={handleProfileInfoUpdate} />
+      </div>
+    </section>
+  );
 }

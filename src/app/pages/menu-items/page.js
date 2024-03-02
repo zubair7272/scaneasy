@@ -1,6 +1,6 @@
 'use client';
-// import Right from "@/components/icons/Right";
-import UserTabs from "../../components/layouts/Tabs.js";
+import Right from "../../components/icons/Right";
+import UserTabs from "../../components/layouts/Tabs";
 import {useProfile} from "../../components/UseProfile";
 import Image from "next/image";
 import Link from "next/link";
@@ -33,9 +33,9 @@ export default function MenuItemsPage() {
       <div className="mt-8">
         <Link
           className="button flex"
-          href={'/menu-items/new'}>
+          href={'/pages/menu-items/new'}>
           <span>Crete new menu item</span>
-          {/* <Right /> */}
+          <Right />
         </Link>
       </div>
       <div>
@@ -44,7 +44,7 @@ export default function MenuItemsPage() {
           {menuItems?.length > 0 && menuItems.map(item => (
             <Link
               key={item._id}
-              href={'/menu-items/edit/'+item._id}
+              href={'/pages/menu-items/edit/'+item._id}
               className="bg-gray-200 rounded-lg p-4"
             >
               <div className="relative">

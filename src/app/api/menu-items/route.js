@@ -1,5 +1,5 @@
 import {isAdmin} from "../auth/[...nextauth]/route";
-import {Category} from "../../models/MenuItem";
+import {MenuItem} from "../../models/MenuItem";
 import mongoose from "mongoose";
 
 export async function POST(req) {
