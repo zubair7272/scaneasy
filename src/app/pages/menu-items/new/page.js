@@ -3,8 +3,8 @@
 // import Right from "@/components/icons/Right";
 import EditableImage from "../../components/layout/EditableImage";
 // import MenuItemForm from "@/components/layout/MenuItemForm";
-import UserTabs from "../../components/layout/UserTabs";
-import {useProfile} from "../../components/UseProfile";
+import UserTabs from "../../../components/layouts/Tabs";
+import {useProfile} from "../../../components/UseProfile";
 import Link from "next/link";
 import {redirect} from "next/navigation";
 import {useState} from "react";
