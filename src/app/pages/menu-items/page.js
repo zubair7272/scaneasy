@@ -15,7 +15,6 @@ export default function MenuItemsPage() {
     fetch('/api/menu-items').then(res => {
       res.json().then(menuItems => {
         setMenuItems(menuItems);
-        // ------- menu items not defined error ------------
       });
     })
   }, []);
