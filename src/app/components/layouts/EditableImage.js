@@ -44,13 +44,13 @@ export default function EditabbleImage({link, setLink}){
         <div className="flex gap-2 bg-gray-300 p-2 rounded-full mb-1 max-w-xs mx-auto mt-8">
         {link &&(
             
-                <Image className="rounded-lg w-full h-full mb-1" src={link} width={80} height={80} alt={'Profile Picture'} />
+                <Image className="rounded-full w-full h-full mb-1" src={link} width={80} height={80} alt={'Profile Picture'} />
             
             )}
         {!link && (
-        <div className="text-center bg-gray-200 p-4 text-gray-500 rounded-lg mb-1 ">
-          No image
-        </div>
+        // <Image className="text-center bg-gray-200 p-4 text-gray-500 rounded-full  ">
+        <Image className="rounded-full w-full h-full mb-1" src={'/sample.jpg'} width={80} height={80} alt={'Profile Picture'} />
+          
       )}
         </div>
 
