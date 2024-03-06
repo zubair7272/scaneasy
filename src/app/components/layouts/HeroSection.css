@@ -244,7 +244,7 @@
 
 /* Common styles */
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1108px) {
   /* Apply styles for screens up to 768px wide */
 
   .hero-container {
