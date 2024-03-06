@@ -44,7 +44,7 @@ export default function Header() {
     userName = userName.split(' ')[0];
   }
   return (
-    <header>
+    <header className="mt-2">
       <div className="flex items-center md:hidden justify-between">
         <Link className="text-primary font-semibold text-2xl" href={'/'}>
           ST PIZZA
