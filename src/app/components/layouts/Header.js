@@ -70,7 +70,7 @@ export default function Header() {
           onClick={() => setMobileNavOpen(false)}
           className="md:hidden p-4 bg-gray-200 rounded-lg mt-2 flex flex-col gap-2 text-center">
           <Link href={'/'}>Home</Link>
-          <Link href={'/menu'}>Menu</Link>
+          <Link href={'/pages/Rests'}>Menu</Link>
           <Link href={'/#about'}>About</Link>
           <Link href={'/#contact'}>Contact</Link>
           <AuthLinks status={status} userName={userName} />
@@ -82,7 +82,7 @@ export default function Header() {
             ST PIZZA
           </Link>
           <Link href={'/'}>Home</Link>
-          <Link href={'/menu'}>Menu</Link>
+          <Link href={'/pages/Rests'}>Menu</Link>
           <Link href={'/#about'}>About</Link>
           <Link href={'/#contact'}>Contact</Link>
         </nav>
