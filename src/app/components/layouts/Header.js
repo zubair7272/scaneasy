@@ -10,7 +10,7 @@ function AuthLinks({status, userName}) {
   if (status === 'authenticated') {
     return (
       <>
-        <Link href={'/pages/profile'} className="whitespace-nowrap">
+        <Link href={'/pages/Profile'} className="whitespace-nowrap">
           Hello, {userName}
         </Link>
         <button
