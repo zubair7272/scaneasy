@@ -1,6 +1,17 @@
+'use client';
 import Image  from "next/image";
 import Items from "./Items";
+import MenuItem from "./MenuItem";
+
 export default function Menu(){
+    const [bestSellers, setBestSellers] = useState([]);
+  useEffect(() => {
+    fetch('/api/menu-items').then(res => {
+      res.json().then(MenuItems => {
+        setBestSellers(MenuItems);
+      });
+    });
+  }, []);
     return (
         <section>
             {/* <div className="absolute h-full left-0 right-0 w-full justify-start">
