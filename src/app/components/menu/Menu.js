@@ -3,16 +3,17 @@ import Image  from "next/image";
 import Items from "./Items";
 import MenuItem from "./MenuItem";
 import { useState } from "react";
+import { useEffect } from "react";
 
 export default function Menu(){
     const [bestSellers, setBestSellers] = useState([]);
-  useEffect(() => {
-    fetch('/api/menu-items').then(res => {
-      res.json().then(MenuItems => {
-        setBestSellers(MenuItems);
-      });
-    });
-  }, []);
+    useEffect(() => {
+        fetch('/api/menu-items').then(res => {
+         res.json().then(MenuItems => {
+            setBestSellers(MenuItems);
+        });
+        });
+    }, []);
     return (
         <section>
             {/* <div className="absolute h-full left-0 right-0 w-full justify-start">
@@ -29,12 +30,9 @@ export default function Menu(){
                 </h3>
             </div>
             <div className="grid grid-cols-3 gap-4">
-                <Items />
-                <Items />
-                <Items />
-                <Items />
-                <Items />
-                <Items />
+                {bestSellers?.length>0 && bestSellers.map(item =>(
+                    <MenuItem {...item}/>
+                ))}
             </div>
         </section>
     );
