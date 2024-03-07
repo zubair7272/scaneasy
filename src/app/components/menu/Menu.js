@@ -2,6 +2,7 @@
 import Image  from "next/image";
 import Items from "./Items";
 import MenuItem from "./MenuItem";
+import { useState } from "react";
 
 export default function Menu(){
     const [bestSellers, setBestSellers] = useState([]);
