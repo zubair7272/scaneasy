@@ -101,11 +101,13 @@ export default function CartPage() {
           <div className="py-2 pr-16 flex justify-end items-center">
             <div className="text-gray-500">
               Subtotal:<br />
+              Delivery:<br />
               Total:
             </div>
             <div className="font-semibold pl-2 text-right">
               ${subtotal}<br />
-              ${subtotal}
+              $5<br />
+              ${subtotal + 5}
             </div>
           </div>
         </div>
