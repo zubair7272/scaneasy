@@ -94,20 +94,22 @@ export default function CartPage() {
           {cartProducts?.length > 0 && cartProducts.map((product, index) => (
             <CartProduct
               key={index}
+              index={index}
               product={product}
               onRemove={removeCartProduct}
             />
+            
           ))}
           <div className="py-2 pr-16 flex justify-end items-center">
             <div className="text-gray-500">
               Subtotal:<br />
-              Delivery:<br />
-              Total:
+              {/* Delivery:<br /> */}
+              {/* Total: */}
             </div>
             <div className="font-semibold pl-2 text-right">
               ${subtotal}<br />
-              $5<br />
-              ${subtotal + 5}
+              {/* $5<br /> */}
+              {/* ${subtotal + 5} */}
             </div>
           </div>
         </div>
@@ -118,7 +120,7 @@ export default function CartPage() {
               addressProps={address}
               setAddressProp={handleAddressChange}
             />
-            <button type="submit">Pay ${subtotal+5}</button>
+            <button type="submit">Pay ${subtotal}</button>
           </form>
         </div>
       </div>

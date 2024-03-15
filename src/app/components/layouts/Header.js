@@ -47,7 +47,7 @@ export default function Header() {
     <header className="mt-2">
       <div className="flex items-center md:hidden justify-between">
         <Link className="text-primary font-semibold text-2xl" href={'/'}>
-          ST PIZZA
+          EASY ORDER
         </Link>
         <div className="flex gap-8 items-center">
           <Link href={'/cart'} className="relative">
@@ -79,7 +79,7 @@ export default function Header() {
       <div className="hidden md:flex items-center justify-between">
         <nav className="flex items-center gap-8 text-gray-500 font-semibold">
           <Link className="text-primary font-semibold text-2xl" href={'/'}>
-            ST PIZZA
+            EASY ORDER
           </Link>
           <Link href={'/pages/Rests'}>Home</Link>
           <Link href={'/menu'}>Menu</Link>

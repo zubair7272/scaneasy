@@ -25,13 +25,13 @@ export default function Menu(){
                 </div>
             </div> */}
             <div className="text-center mb-4">
-                <h3 className="text-red-600 font bold text-4xl italic">
+                <h3 className="text-primary font bold text-4xl italic">
                     MENU
                 </h3>
             </div>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid sm:grid-cols-3 gap-4">
                 {bestSellers?.length>0 && bestSellers.map(item =>(
-                    <MenuItem {...item}/>
+                    <MenuItem key={item._id} {...item}/>
                 ))}
             </div>
         </section>

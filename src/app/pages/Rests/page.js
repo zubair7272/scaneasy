@@ -6,7 +6,7 @@ import Menu from "../../components/menu/Menu";
 export default function rests(){
     return(
         <>
-            <h1>This is Restaurants Home Page</h1>
+            {/* <h1>This is Restaurants Home Page</h1> */}
             {/* <Header /> */}
             <Menu />
             {/* <Footer /> */}

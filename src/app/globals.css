@@ -20,14 +20,17 @@ input[type="text"]:disabled{
     @apply bg-gray-100 border cursor-not-allowed text-gray-500;
 }
 button{
-    @apply block w-full text-gray-700 font-semibold bg-blue-700 ;
+    @apply block w-full text-white font-semibold bg-primary ;
     @apply border border-gray-400 rounded-xl px-6 py-2 ml-2;
 }
 button[type="submit"], .submit{
-    @apply border-0 bg-blue-700  text-white;
+    @apply border-0 bg-primary  text-white;
+}
+button[type="button"], .submit{
+    @apply border-0 bg-primary  text-white items-center;
 }
 button[type="submit"]:disabled, .submit:disabled{
-    @apply border-0 bg-blue-700  text-white
+    @apply border-0 bg-primary  text-white
     cursor-not-allowed;
 } 
 div.tabs>*{
@@ -35,6 +38,6 @@ div.tabs>*{
 }
 
 div.tabs>*.active{
-    @apply bg-blue-700 text-white
+    @apply bg-primary text-white
 }
 
