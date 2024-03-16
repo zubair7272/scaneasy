@@ -125,7 +125,7 @@ const [formData, setFormData] = useState({
             </div>
           )}
         </div>
-        <Image src={'/right-section.jpg'} alt="Background" width={600} height={80} />
+        <Image src={'/Hero-f.png'} alt="Background" width={550} height={80} />
       </div>
 
       {/* Updated content with the new headings and list */}
@@ -166,7 +166,7 @@ const [formData, setFormData] = useState({
         As individuals, support and respect each other, and embrace our differences.</h3>
           
         </div>
-        <Image src={'/right-section.jpg'} alt="Background" width={600} height={80} />
+        <Image src={'/Hero-f.png'} alt="Background" width={550} height={80} />
       </div>
 
 </div>
