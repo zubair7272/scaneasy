@@ -24,13 +24,10 @@ export default function CartPage() {
 
   useEffect(() => {
     if (profileData?.phone) {
-      const {phone, streetAddress, city, postalCode, country} = profileData;
+      const {phone, restaurantname} = profileData;
       const addressFromProfile = {
         phone,
-        streetAddress,
-        city,
-        postalCode,
-        country
+        restaurantname
       };
       setAddress(addressFromProfile);
     }
