@@ -78,6 +78,15 @@ export default function CartPage() {
     );
   }
 
+  // if(profileData?.phone?.length==0){
+  //   return (
+  //     <section className="mt-8 text-center">
+  //       <SectionHeaders mainHeader="cart" />
+  //       <p className="mt-4">Enter your phone number</p>
+  //     </section>
+  //   );
+  // }
+
   return (
     <section className="mt-8">
       <div className="text-center">
