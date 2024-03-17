@@ -26,10 +26,10 @@ function AuthLinks({status, userName}) {
   if (status === 'unauthenticated') {
     return (
       <>
-        <Link href={'/pages/login'}>Login</Link>
-        <Link href={'/pages/register'} className="bg-blue-700 rounded-full text-white px-8 py-2">
+        <Link className="bg-blue-700 rounded-full text-white px-8 py-2" href={'/pages/login'} >Login</Link>
+        {/* <Link href={'/pages/register'} className="bg-blue-700 rounded-full text-white px-8 py-2">
           Register
-        </Link>
+        </Link> */}
       </>
     );
   }

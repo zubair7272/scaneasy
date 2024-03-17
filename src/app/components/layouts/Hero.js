@@ -166,7 +166,6 @@ const [formData, setFormData] = useState({
         As individuals, support and respect each other, and embrace our differences.</h3>
           
         </div>
-        <Image src={'/Hero-f.png'} alt="Background" width={550} height={80} />
       </div>
 
 </div>
