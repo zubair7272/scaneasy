@@ -43,6 +43,10 @@ export default function CartPage() {
   async function proceedToCheckout(ev) {
     ev.preventDefault();
     // address and shopping cart products
+    if (!address.phone) {
+      toast.error('Please provide your phone number.');
+      return;
+    }
 
     const promise = new Promise((resolve, reject) => {
       fetch('/api/checkout', {
@@ -113,9 +117,9 @@ export default function CartPage() {
               {/* Total: */}
             </div>
             <div className="font-semibold pl-2 text-right">
-              ${subtotal}<br />
-              {/* $5<br /> */}
-              {/* ${subtotal + 5} */}
+              SAR {subtotal}<br />
+              {/* SAR5<br /> */}
+              {/* SAR {subtotal + 5} */}
             </div>
           </div>
         </div>
@@ -126,7 +130,13 @@ export default function CartPage() {
               addressProps={address}
               setAddressProp={handleAddressChange}
             />
-            <button type="submit">Pay ${subtotal}</button>
+            <div className="flex items-center">
+              <input type="checkbox" id="payByCash" name="payByCash" />
+              <label htmlFor="payByCash" className="ml-2">
+                Pay by Cash
+              </label>
+            </div>
+            <button type="submit">Pay SAR {subtotal}</button>
           </form>
         </div>
       </div>
