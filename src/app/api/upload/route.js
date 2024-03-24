@@ -3,11 +3,11 @@ import uniqid from 'uniqid';
 
 export async function POST(req) {
   const data =  await req.formData();
-  console.log(data)
+  // console.log(data)
   if (data.get('file')) {
     // upload the file
     const file = data.get('file');
-    console.log(file)
+    // console.log(file)
     const s3Client = new S3Client({
       region: 'ap-south-1',
       credentials: {
