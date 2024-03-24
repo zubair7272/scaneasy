@@ -102,8 +102,8 @@ export default function OrdersPage() {
                     </>
                   
                   )}
-                  {order.status === 'accepted' && <p>Order Accepted!</p>}
-                  {order.status === 'rejected' && <p>Order Rejected!</p>}
+                  {order.status === 'accepted' && <p>Your Order is Accepted!</p>}
+                  {order.status === 'rejected' && <p>Your Order is Rejected!</p>}
                 </div>
 
 
