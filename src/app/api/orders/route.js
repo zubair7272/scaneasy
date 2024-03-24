@@ -26,3 +26,13 @@ export async function GET(req) {
   }
 
 }
+export async function PUT(req) {
+  mongoose.connect(process.env.MONGO_URL);
+  // console.log(await req.json());
+  const {_id, status} = await req.json();
+  if (await isAdmin()) {
+    // console.log(status)
+    await Order.updateOne({_id}, {status});
+  }
+  return Response.json(true);
+}

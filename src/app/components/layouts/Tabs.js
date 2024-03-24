@@ -18,7 +18,7 @@ export default function UserTabs({isAdmin}) {
             href={'/pages/categories'}
             className={path === '/pages/categories' ? 'active' : ''}
           >
-            Categories
+          Categories
           </Link>
           <Link
             href={'/pages/menu-items'}
@@ -40,6 +40,16 @@ export default function UserTabs({isAdmin}) {
       >
         Orders
       </Link>
+      {/* {isSubscribed && (
+        <button className="active" disabled>
+          Subscribed
+        </button>
+      )}
+      {!isSubscribed && (
+        <button className="subscribe-button">
+          Subscribe
+        </button>
+      )} */}
     </div>
   );
 }

@@ -3,6 +3,8 @@ import SectionHeaders from "../components/layouts/SectionHeaders";
 import UserTabs from "../components/layouts/Tabs";
 import {useProfile} from "../components/UseProfile";
 import {dbTimeForHuman} from "../libs/datetime";
+import AcceptOrder from "../components/order/AcceptOrder"
+
 import Link from "next/link";
 import {useEffect, useState} from "react";
 
@@ -10,6 +12,8 @@ export default function OrdersPage() {
   const [orders, setOrders] = useState([]);
   const [loadingOrders, setLoadingOrders] = useState(true);
   const {loading, data:profile} = useProfile();
+  // const [orderStatus, setOrderStatus] = useState('pending');
+
 
   useEffect(() => {
     fetchOrders();
@@ -25,6 +29,49 @@ export default function OrdersPage() {
     })
   }
 
+  const handleAcceptOrder = async (id,status) => {
+    try {
+      const response = await fetch('/api/orders', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({_id:id,status:status})
+      });
+
+      if (response.ok) {
+        // setOrderStatus('accepted');
+        console.log('Order status updated to "accepted"');
+        fetchOrders();
+      } else {
+        console.error('Failed to update order status:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error updating order status:', error);
+    }
+  };
+
+  const handleRejectOrder = async (id,status) => {
+    try {
+      const response = await fetch('/api/orders', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ status: 'rejected' }) // Assuming you're sending only the status
+      });
+
+      if (response.ok) {
+        // setOrderStatus('rejected');
+        console.log('Order status updated to "rejected"');
+        fetchOrders();
+      } else {
+        console.error('Failed to update order status:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error updating order status:', error);
+    }
+  };
   return (
     <section className="mt-8 max-w-2xl mx-auto">
       <UserTabs isAdmin={profile.admin} />
@@ -44,6 +91,22 @@ export default function OrdersPage() {
                 }>
                   {order.paid ? 'Paid' : 'Not paid'}
                 </div>
+                <div>
+                  {order.status === 'pending' && (
+                    <>
+                      <AcceptOrder text="Accept Order" onClick={() => {
+                        handleAcceptOrder(order._id,'accepted')
+                      }} />
+                      <AcceptOrder text="Reject Order" onClick={() => {
+                        handleAcceptOrder(order._id,'rejected') }} />
+                    </>
+                  
+                  )}
+                  {order.status === 'accepted' && <p>Order Accepted!</p>}
+                  {order.status === 'rejected' && <p>Order Rejected!</p>}
+                </div>
+
+
               </div>
               <div className="grow">
                 <div className="flex gap-2 items-center mb-1">
