@@ -85,7 +85,6 @@ export default function OrderPage() {
       <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={printInvoice}>
         Print Invoice
       </button>
-      <PrintInvoice order={order}/>
     </section>
   );
 }
