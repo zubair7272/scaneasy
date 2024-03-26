@@ -7,10 +7,16 @@ import Dates from "../../components/invoice/Dates";
 import ClientDetails from "../../components/invoice/ClientDetails";
 import MainDetails from "../../components/invoice/MainDetails";
 
-export default function PrintInvocie(){
-        const handlePrint = () =>{
-          window.print()
-      }
+export default function PrintInvocie(id){
+        // console.log(order?.cartproducts)
+        // const {phone} = order
+        // const [order, setOrder] = useState();
+
+        console.log(id)
+        
+      //   const handlePrint = () =>{
+      //     window.print()
+      // }
       return(
         <section>
           hello

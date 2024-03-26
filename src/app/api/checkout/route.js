@@ -8,7 +8,7 @@ const stripe = require('stripe')(process.env.STRIPE_SK);
 export async function POST(req) {
   mongoose.connect(process.env.MONGO_URL);
 
-  const {cartProducts, address} = await req.json();
+  const { cartProducts, address, payByCash } = await req.json();
   const session = await getServerSession(authOptions);
   const userEmail = session?.user?.email;
 
@@ -16,8 +16,12 @@ export async function POST(req) {
     userEmail,
     ...address,
     cartProducts,
-    paid: false,
+    paid: !payByCash, // Mark the order as paid if not paying by cash
   });
+
+  if (payByCash) {
+    return Response.json({ orderId: orderDoc._id.toString() });
+  }
 
   const stripeLineItems = [];
   for (const cartProduct of cartProducts) {
@@ -63,15 +67,7 @@ export async function POST(req) {
     payment_intent_data: {
       metadata:{orderId:orderDoc._id.toString()},
     },
-    shipping_options: [
-      {
-        shipping_rate_data: {
-          display_name: 'Other Charges',
-          type: 'fixed_amount',
-          fixed_amount: {amount: 0, currency: 'SAR'},
-        },
-      }
-    ],
+  
     
   });
   // console.log()

@@ -47,19 +47,29 @@ export default function CartPage() {
       toast.error('Please provide your phone number.');
       return;
     }
+    const payByCash = ev.target.payByCash.checked;
+    const payload = {
+      address,
+      cartProducts,
+      payByCash // Add payByCash flag to payload
+    };
 
     const promise = new Promise((resolve, reject) => {
       fetch('/api/checkout', {
         method: 'POST',
         headers: {'Content-Type':'application/json'},
-        body: JSON.stringify({
-          address,
-          cartProducts,
-        }),
+        body: JSON.stringify(payload),
       }).then(async (response) => {
         if (response.ok) {
+          const responseData = await response.json();
+          if (responseData.orderId) {
+            // If paying by cash, show success toast with order ID
+            toast.success(`Order placed successfully. Order ID: ${responseData.orderId}`);
+          } else {
+            // If redirecting to payment, redirect to the returned URL
+            window.location = responseData;
+          }
           resolve();
-          window.location = await response.json();
         } else {
           reject();
         }

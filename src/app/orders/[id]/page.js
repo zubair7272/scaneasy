@@ -1,18 +1,20 @@
-'use client';
-import {CartContext, cartProductPrice} from "../../components/AppContext";
+'use client'
+import { useState, useContext, useEffect } from "react";
+import { useParams } from "next/navigation";
+import { CartContext, cartProductPrice } from "../../components/AppContext";
 import AddressInputs from "../../components/layouts/AddressInputs";
 import SectionHeaders from "../../components/layouts/SectionHeaders";
 import CartProduct from "../../components/menu/CartProduct";
-import {useParams} from "next/navigation";
-import {useContext, useEffect, useState} from "react";
-import PrintInvoice from "../../components/invoice/printinvoice"
-import invoice from "../../components/invoice/invoicingpage"
+import PrintInvoice from "../../components/invoice/printinvoice";
+import invoice from "../../components/invoice/invoicingpage";
 
 export default function OrderPage() {
-  const {clearCart} = useContext(CartContext);
+  const { clearCart } = useContext(CartContext);
   const [order, setOrder] = useState();
   const [loadingOrder, setLoadingOrder] = useState(true);
-  const {id} = useParams();
+   
+  const { id } = useParams();
+  
   useEffect(() => {
     if (typeof window.console !== "undefined") {
       if (window.location.href.includes('clear-cart=1')) {
@@ -36,6 +38,11 @@ export default function OrderPage() {
       subtotal += cartProductPrice(product);
     }
   }
+
+  const printInvoice = () => {
+    // You can implement printing logic here, for example:
+    window.print();
+  };
 
   return (
     <section className="max-w-2xl mx-auto mt-8">
@@ -75,10 +82,10 @@ export default function OrderPage() {
           </div>
         </div>
       )}
-      {/* <invoice/> */}
-      <PrintInvoice
-      />
+      <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={printInvoice}>
+        Print Invoice
+      </button>
+      <PrintInvoice order={order}/>
     </section>
-    
   );
 }
