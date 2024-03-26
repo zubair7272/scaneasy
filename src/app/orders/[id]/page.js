@@ -5,6 +5,7 @@ import SectionHeaders from "../../components/layouts/SectionHeaders";
 import CartProduct from "../../components/menu/CartProduct";
 import {useParams} from "next/navigation";
 import {useContext, useEffect, useState} from "react";
+import PrintInvoice from "../../components/invoice/printinvoice"
 
 export default function OrderPage() {
   const {clearCart} = useContext(CartContext);
@@ -73,6 +74,10 @@ export default function OrderPage() {
           </div>
         </div>
       )}
+      {/* <PrintInvoice
+        orderid={id.toString()}
+      /> */}
     </section>
+    
   );
 }

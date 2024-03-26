@@ -74,6 +74,6 @@ export async function POST(req) {
     ],
     
   });
-
+  // console.log()
   return Response.json(stripeSession.url);
 }
