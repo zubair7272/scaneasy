@@ -13,7 +13,7 @@ export default function PrintInvocie(){
       }
       return(
         <section>
-          hello
+          <button onClick={PrintInvocie}>Print Invoice</button>
         </section>
       );
 }
