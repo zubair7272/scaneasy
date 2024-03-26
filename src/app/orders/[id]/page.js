@@ -6,6 +6,7 @@ import CartProduct from "../../components/menu/CartProduct";
 import {useParams} from "next/navigation";
 import {useContext, useEffect, useState} from "react";
 import PrintInvoice from "../../components/invoice/printinvoice"
+import invoice from "../../components/invoice/invoicingpage"
 
 export default function OrderPage() {
   const {clearCart} = useContext(CartContext);
@@ -74,9 +75,9 @@ export default function OrderPage() {
           </div>
         </div>
       )}
-      {/* <PrintInvoice
-        orderid={id.toString()}
-      /> */}
+      {/* <invoice/> */}
+      <PrintInvoice
+      />
     </section>
     
   );
