@@ -64,7 +64,9 @@ export default function CartPage() {
           const responseData = await response.json();
           if (responseData.orderId) {
             // If paying by cash, show success toast with order ID
-            toast.success(`Order placed successfully. Order ID: ${responseData.orderId}`);
+            // toast.success(`Order placed successfully. Order ID: ${responseData.orderId}`);
+            // console.log(responseData.orderId);
+            window.location.href = 'https://www.smartservesa.com/orders/' + responseData.orderId + '?clear-cart=1';
           } else {
             // If redirecting to payment, redirect to the returned URL
             window.location = responseData;
