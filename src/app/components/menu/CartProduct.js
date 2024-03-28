@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function CartProduct({index,product,onRemove}) {
   return (
     <div className="flex items-center gap-4 border-b py-4">
-      <div className="w-24">
+      <div className="w-24 print:hidden">
         <Image width={240} height={240} src={product.image} alt={''} />
       </div>
       <div className="grow">

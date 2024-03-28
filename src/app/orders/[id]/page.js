@@ -50,7 +50,15 @@ export default function OrderPage() {
         <SectionHeaders mainHeader="Your order" />
         <div className="mt-4 mb-8">
           <p>Thanks for your order.</p>
-          <p>We will call you when your order will be on the way.</p>
+          <p className="mb-2 print:hidden">We will call you when your order will be on the way.</p>
+          <div className="bg-white">
+              <AddressInputs
+                disabled={true}
+                addressProps={order}
+              />
+            </div>
+          <p className="float-left  font-bold">Items</p>
+          <p className="float-right  font-bold">Price</p>
         </div>
       </div>
       {loadingOrder && (
@@ -73,16 +81,16 @@ export default function OrderPage() {
             </div>
           </div>
           <div>
-            <div className="bg-white p-4 rounded-lg">
+            {/* <div className="bg-white">
               <AddressInputs
                 disabled={true}
                 addressProps={order}
               />
-            </div>
+            </div> */}
           </div>
         </div>
       )}
-      <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={printInvoice}>
+      <button className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded print:hidden" onClick={printInvoice}>
         Print Invoice
       </button>
     </section>
