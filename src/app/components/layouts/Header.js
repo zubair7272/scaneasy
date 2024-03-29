@@ -46,7 +46,7 @@ export default function Header() {
     userName = userName.split(' ')[0];
   }
   return (
-    <header className="mt-2">
+    <header className="mt-2 block print:hidden">
       <div className="flex items-center md:hidden justify-between">
         <Link className="text-primary font-semibold text-2xl" href={'/'}>
         <Image src={'/Branding.png'} alt="Background" width={150} height={150} />
