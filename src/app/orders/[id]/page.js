@@ -50,13 +50,27 @@ export default function OrderPage() {
         <SectionHeaders mainHeader="Your order" />
         <div className="mt-4 mb-8">
           <p>Thanks for your order.</p>
-          <p className="mb-2 print:hidden">We will call you when your order will be on the way.</p>
+          {order && (
+            <>
+              {order.status === 'accepted' && (
+                <p>Your order will be available in 10 minutes.</p>
+              )}
+              {order.status === 'rejected' && (
+                <p>Your order has been cancelled.</p>
+              )}
+              {order.status === 'pending' &&(
+                <p className="mb-2 print:hidden">Your Order Is in Queue.</p>
+              )}
+            </>
+          )}
+          
           <div className="bg-white">
-              <AddressInputs
-                disabled={true}
-                addressProps={order}
-              />
-            </div>
+            {/* Display phone number here */}
+            {order && <>
+                <p>Order ID: {order._id}</p>
+                <p>Phone: {order.phone}</p>
+              </>}
+          </div>
           <p className="float-left  font-bold">Items</p>
           <p className="float-right  font-bold">Price</p>
         </div>
@@ -81,12 +95,12 @@ export default function OrderPage() {
             </div>
           </div>
           <div>
-            {/* <div className="bg-white">
+            <div className="bg-white">
               <AddressInputs
                 disabled={true}
                 addressProps={order}
               />
-            </div> */}
+            </div>
           </div>
         </div>
       )}
