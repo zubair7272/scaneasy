@@ -1,0 +1,38 @@
+/* components/CircularCountdownTimer.module.css */
+
+.countdownContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+  
+.countdownWrapper {
+    position: relative;
+}
+  
+.countdown {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 10px solid #cccccc;
+    position: relative;
+}
+  
+.countdownTimer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+  
+.timerLabel {
+    font-size: 20px;
+    color: #007bff; /* Change color to primary */
+}
+  
+.time {
+    font-size: 30px;
+    color: #007bff; /* Change color to primary */
+}
