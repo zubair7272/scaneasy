@@ -25,9 +25,10 @@ export default function Menu(){
                 </div>
             </div> */}
             <div className="text-center mb-4">
-                <h3 className="text-primary font bold text-4xl italic">
-                    MENU
+                <h3 className="text-primary font bold text-4xl italic text-left mt-20">
+                    Restaurant Name
                 </h3>
+                <p className="mb-10 text-2xl text-primary font-bold">Our Best Sellers</p>
             </div>
             <div className="grid sm:grid-cols-3 gap-4">
                 {bestSellers?.length>0 && bestSellers.map(item =>(
