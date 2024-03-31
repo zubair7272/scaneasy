@@ -4,6 +4,7 @@ import {AppProvider} from "./components/AppContext"
 import Header from "./components/layouts/Header";
 import Footer from "./components/layouts/Footer";
 import { Toaster } from "react-hot-toast";
+
 const roboto = Roboto({ subsets: ["latin"], weight: ['400','500','700'] });
 
 export const metadata = {

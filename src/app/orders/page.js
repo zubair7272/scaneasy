@@ -12,12 +12,21 @@ export default function OrdersPage() {
   const [orders, setOrders] = useState([]);
   const [loadingOrders, setLoadingOrders] = useState(true);
   const {loading, data:profile} = useProfile();
+  const [timer, setTimer] = useState(null);
+  const [remainingTime, setRemainingTime] = useState(null);
+   const [orderTimers, setOrderTimers] = useState({});
   // const [orderStatus, setOrderStatus] = useState('pending');
 
 
   useEffect(() => {
     fetchOrders();
   }, []);
+  useEffect(() => {
+    // Cleanup the timer when component unmounts or when orders change
+    return () => {
+      clearInterval(timer);
+    };
+  }, [timer, orders]);
 
   function fetchOrders() {
     setLoadingOrders(true);
@@ -28,6 +37,32 @@ export default function OrdersPage() {
       })
     })
   }
+
+  const startTimer = (orderId) => {
+    // Clear previous timer for the same order if exists
+    if (orderTimers[orderId]) {
+      clearInterval(orderTimers[orderId]);
+    }
+    // Set a new timer for 10 minutes for the accepted order
+    const endTime = new Date().getTime() + 10 * 60 * 1000; // 10 minutes in milliseconds
+    const timerId = setInterval(() => {
+      const currentTime = new Date().getTime();
+      const remainingTime = endTime - currentTime;
+      if (remainingTime <= 0) {
+        clearInterval(orderTimers[orderId]); // Clear the timer when time is up
+        delete orderTimers[orderId]; // Remove the timer ID from state
+        fetchOrders(); // Refresh orders after the timer expires
+      }
+      setOrders(prevOrders => prevOrders.map(order => {
+        if (order._id === orderId) {
+          return { ...order, remainingTime }; // Update remaining time for the accepted order
+        }
+        return order;
+      }));
+    }, 1000); // Update every second
+    // Store the timer ID in state for the accepted order
+    setOrderTimers(prevTimers => ({ ...prevTimers, [orderId]: timerId }));
+  };
 
   const handleAcceptOrder = async (id,status) => {
     try {
@@ -41,6 +76,7 @@ export default function OrdersPage() {
 
       if (response.ok) {
         // setOrderStatus('accepted');
+        startTimer(id);
         console.log('Order status updated to "accepted"');
         fetchOrders();
       } else {
@@ -49,6 +85,7 @@ export default function OrdersPage() {
     } catch (error) {
       console.error('Error updating order status:', error);
     }
+   
   };
 
   const handleRejectOrder = async (id,status) => {
@@ -72,6 +109,13 @@ export default function OrdersPage() {
       console.error('Error updating order status:', error);
     }
   };
+
+  function formatTime(time) {
+    const minutes = Math.floor(time / 60000);
+    const seconds = Math.floor((time % 60000) / 1000);
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+  }
+  
   return (
     <section className="mt-8 max-w-2xl mx-auto">
       <UserTabs isAdmin={profile.admin} />
@@ -102,7 +146,9 @@ export default function OrdersPage() {
                     </>
                   
                   )}
-                  {order.status === 'accepted' && <p>Your Order is Accepted!</p>}
+                  {order.status === 'accepted' && (
+                      <div className="mt-4">Time remaining: {formatTime(order.remainingTime)}</div>
+                   )}
                   {order.status === 'rejected' && <p>Your Order is Rejected!</p>}
                 </div>
 
@@ -126,6 +172,7 @@ export default function OrdersPage() {
             </div>
           </div>
         ))}
+        
       </div>
     </section>
   );
